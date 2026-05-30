@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BookCallButton } from "@/components/Booking";
@@ -35,10 +36,17 @@ export function SiteHeader() {
       <div className="container-c flex items-center justify-between px-6 py-4 md:px-10">
         <Link
           href="/"
-          className="font-serif text-xl font-500 tracking-tight text-ink"
+          className="flex items-center"
           aria-label="Convert Studios home"
         >
-          Convert<span className="text-oxblood">.</span>Studios
+          <Image
+            src="/logo-ink.png"
+            alt="Convert Studios"
+            width={66}
+            height={48}
+            priority
+            className="h-11 w-auto md:h-12"
+          />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
