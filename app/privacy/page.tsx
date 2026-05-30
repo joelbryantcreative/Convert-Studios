@@ -7,15 +7,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="section-pad pt-36 md:pt-44">
+    <section className="bg-noir px-6 pb-24 pt-36 md:px-10 md:pt-44">
       <div className="container-c max-w-3xl">
         <p className="eyebrow mb-5">Legal</p>
-        <h1 className="font-serif text-5xl font-300 leading-[1.05] tracking-tight text-ink md:text-6xl">
-          Privacy Policy
-        </h1>
-        <p className="mt-4 text-sm text-ink/45">Last updated: May 2026</p>
+        <h1 className="display-lg text-white">Privacy Policy</h1>
+        <p className="mt-4 text-sm text-white/45">Last updated: May 2026</p>
 
-        <div className="prose-convert mt-10 space-y-6 text-ink/70 [&_h2]:mt-10 [&_h2]:font-serif [&_h2]:text-2xl [&_h2]:text-ink [&_p]:leading-relaxed">
+        <div className="mt-10 space-y-6 text-white/70 [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-xl [&_h2]:text-white [&_p]:leading-relaxed">
           <p className="text-lg">
             This is a placeholder privacy policy for Convert Studios. Replace
             this content with your finalised policy before launch.
@@ -24,7 +22,7 @@ export default function PrivacyPage() {
           <h2>Information we collect</h2>
           <p>
             When you contact us or book a call, we collect the details you
-            provide — such as your name, email address, business name and the
+            provide — such as your name, email address, phone number, and the
             message you send us. We may also collect basic analytics about how
             visitors use this website.
           </p>
@@ -47,19 +45,14 @@ export default function PrivacyPage() {
           <p>
             You can request access to, correction of, or deletion of your
             personal information at any time by emailing{" "}
-            <a
-              href="mailto:hello@convert.studios"
-              className="link-underline text-oxblood"
-            >
+            <a href="mailto:hello@convert.studios" className="link-underline text-sage">
               hello@convert.studios
             </a>
             .
           </p>
 
           <h2>Contact</h2>
-          <p>
-            Questions about this policy? Reach us at hello@convert.studios.
-          </p>
+          <p>Questions about this policy? Reach us at hello@convert.studios.</p>
         </div>
       </div>
     </section>

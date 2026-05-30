@@ -1,15 +1,14 @@
 import type { Metadata } from "next";
-import { Fraunces, Inter } from "next/font/google";
+import { Archivo, Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
 import { BookingProvider } from "@/components/Booking";
 
-const fraunces = Fraunces({
+const archivoExpanded = Archivo({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-fraunces",
+  axes: ["wdth"],
+  variable: "--font-archivo-expanded",
   display: "swap",
 });
 
@@ -17,6 +16,14 @@ const inter = Inter({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+const fraunces = Fraunces({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["italic", "normal"],
+  variable: "--font-fraunces",
   display: "swap",
 });
 
@@ -63,8 +70,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-AU" className={`${fraunces.variable} ${inter.variable}`}>
-      <body className="font-sans antialiased">
+    <html
+      lang="en-AU"
+      className={`${archivoExpanded.variable} ${inter.variable} ${fraunces.variable}`}
+    >
+      <body className="bg-noir font-sans text-white antialiased">
         <BookingProvider>
           <SiteHeader />
           <main>{children}</main>

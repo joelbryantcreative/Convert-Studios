@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --font-fraunces: "Fraunces", Georgia, serif;
+  --font-archivo-expanded: "Archivo Expanded", system-ui, sans-serif;
   --font-inter: "Inter", system-ui, sans-serif;
+  --font-fraunces: "Fraunces", Georgia, serif;
 }
 
 html {
@@ -12,39 +13,62 @@ html {
 }
 
 body {
-  background-color: #f5f1e8;
-  color: #1a1a1a;
+  background-color: #0a0a0a;
+  color: #ffffff;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
+::selection {
+  background: #9fb9a1;
+  color: #0a0a0a;
+}
+
 @layer components {
-  /* Fine letterpress rule line */
-  .rule {
-    @apply h-px w-full bg-ink/15;
+  .container-c {
+    @apply mx-auto w-full max-w-container;
   }
 
   .section-pad {
     @apply px-6 py-24 md:px-10 md:py-32;
   }
 
-  .container-c {
-    @apply mx-auto w-full max-w-container;
+  /* Heavy extended-grotesk display type */
+  .font-display {
+    font-family: var(--font-archivo-expanded);
+    font-weight: 800;
+    font-stretch: 125%;
+    font-variation-settings: "wdth" 125;
+    letter-spacing: -0.01em;
+  }
+
+  .display-xl {
+    @apply font-display text-4xl leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl;
+  }
+
+  .display-lg {
+    @apply font-display text-3xl leading-[1.05] sm:text-4xl md:text-5xl;
   }
 
   .eyebrow {
-    @apply text-xs font-medium uppercase tracking-widest2 text-ink/50;
+    @apply text-xs font-medium uppercase tracking-widest2 text-white/50;
   }
 
+  /* White pill button on dark theme */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-7 py-3.5 text-sm font-medium tracking-wide text-cream transition-all duration-300 hover:bg-oxblood focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oxblood;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold tracking-wide text-noir transition-all duration-300 hover:bg-sage focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/20 px-7 py-3.5 text-sm font-medium tracking-wide text-ink transition-all duration-300 hover:border-ink hover:bg-ink hover:text-cream;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-noir;
   }
 
   .link-underline {
     @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
+  }
+
+  /* Light form inputs on dark backgrounds */
+  .field-input {
+    @apply w-full rounded-none border-0 bg-white px-4 py-3.5 text-ink outline-none ring-2 ring-transparent transition placeholder:text-ink/40 focus:ring-sage;
   }
 }

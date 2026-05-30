@@ -2,17 +2,18 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { BookCallButton } from "@/components/Booking";
 
 const navLinks = [
-  { href: "/#services", label: "Services" },
+  { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
-  { href: "/#mission", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/store", label: "Store" },
 ];
 
 export function SiteHeader() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -25,43 +26,44 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const isActive = (href: string) =>
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "border-b border-ink/10 bg-cream/85 backdrop-blur-md"
+          ? "border-b border-white/10 bg-noir/85 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <div className="container-c flex items-center justify-between px-6 py-4 md:px-10">
-        <Link
-          href="/"
-          className="flex items-center"
-          aria-label="Convert Studios home"
-        >
+        <Link href="/" aria-label="Convert Studios home" className="flex items-center">
           <Image
-            src="/logo-ink.png"
+            src="/logo-white.png"
             alt="Convert Studios"
             width={66}
             height={48}
             priority
-            className="h-11 w-auto md:h-12"
+            className="h-10 w-auto md:h-11"
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-9 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="link-underline text-sm font-medium text-ink/75 transition hover:text-ink"
+              className={`relative text-sm font-medium transition ${
+                isActive(link.href)
+                  ? "text-white after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-sage"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
               {link.label}
             </Link>
           ))}
-          <BookCallButton className="!px-5 !py-2.5 text-xs">
-            Book a Call
-          </BookCallButton>
+          <SocialIcons />
         </nav>
 
         <button
@@ -72,17 +74,17 @@ export function SiteHeader() {
         >
           <div className="flex flex-col gap-1.5">
             <span
-              className={`block h-px w-6 bg-ink transition-all duration-300 ${
+              className={`block h-px w-6 bg-white transition-all duration-300 ${
                 menuOpen ? "translate-y-[7px] rotate-45" : ""
               }`}
             />
             <span
-              className={`block h-px w-6 bg-ink transition-all duration-300 ${
+              className={`block h-px w-6 bg-white transition-all duration-300 ${
                 menuOpen ? "opacity-0" : ""
               }`}
             />
             <span
-              className={`block h-px w-6 bg-ink transition-all duration-300 ${
+              className={`block h-px w-6 bg-white transition-all duration-300 ${
                 menuOpen ? "-translate-y-[7px] -rotate-45" : ""
               }`}
             />
@@ -92,26 +94,57 @@ export function SiteHeader() {
 
       {/* Mobile menu */}
       <div
-        className={`overflow-hidden border-t border-ink/10 bg-cream md:hidden ${
+        className={`overflow-hidden border-t border-white/10 bg-noir md:hidden ${
           menuOpen ? "max-h-96" : "max-h-0 border-t-0"
         } transition-all duration-300`}
       >
-        <nav className="flex flex-col gap-1 px-6 py-4">
+        <nav className="flex flex-col px-6 py-3">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="border-b border-ink/5 py-3 font-serif text-lg text-ink"
+              className="border-b border-white/5 py-3.5 font-display text-lg text-white"
             >
               {link.label}
             </Link>
           ))}
-          <div className="pt-4">
-            <BookCallButton className="w-full" />
+          <div className="py-4">
+            <SocialIcons />
           </div>
         </nav>
       </div>
     </header>
+  );
+}
+
+function SocialIcons() {
+  return (
+    <div className="flex items-center gap-4 text-white/70">
+      <a
+        href="https://instagram.com/convert.studios"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Convert Studios on Instagram"
+        className="transition hover:text-white"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.7" />
+          <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.7" />
+          <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+        </svg>
+      </a>
+      <a
+        href="https://facebook.com/convert.studios"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Convert Studios on Facebook"
+        className="transition hover:text-white"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M14 9V7.5c0-.7.5-1 1-1h1.5V3.5H14c-2.2 0-3.5 1.4-3.5 3.7V9H8.5v3h2V21h3.5v-9h2.3l.5-3H14z" />
+        </svg>
+      </a>
+    </div>
   );
 }

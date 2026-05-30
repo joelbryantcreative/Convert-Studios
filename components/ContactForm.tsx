@@ -26,14 +26,14 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl border border-ink/10 bg-bone/40 p-10 text-center">
-        <p className="font-serif text-3xl text-ink">Thank you.</p>
-        <p className="mt-3 text-ink/65">
+      <div className="mx-auto max-w-xl border border-white/15 bg-white/5 p-10 text-center">
+        <p className="font-display text-2xl text-white">Thank you.</p>
+        <p className="mt-3 text-white/70">
           We&apos;ve received your message and will be in touch shortly. If
           it&apos;s urgent, email us directly at{" "}
           <a
             href="mailto:hello@convert.studios"
-            className="link-underline text-oxblood"
+            className="link-underline text-sage"
           >
             hello@convert.studios
           </a>
@@ -44,73 +44,59 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="Name" name="name" required>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            autoComplete="name"
-            className={inputClass}
-          />
-        </Field>
-        <Field label="Email" name="email" required>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            autoComplete="email"
-            className={inputClass}
-          />
-        </Field>
-      </div>
+    <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-7">
+      <fieldset className="space-y-3">
+        <legend className="text-lg font-medium text-white">Name</legend>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <Field label="First Name" name="firstName" required>
+            <input id="firstName" name="firstName" required autoComplete="given-name" className="field-input" />
+          </Field>
+          <Field label="Last Name" name="lastName" required>
+            <input id="lastName" name="lastName" required autoComplete="family-name" className="field-input" />
+          </Field>
+        </div>
+      </fieldset>
 
-      <Field label="Business name" name="business">
-        <input
-          type="text"
-          id="business"
-          name="business"
-          autoComplete="organization"
-          className={inputClass}
-        />
+      <Field label="Email" name="email" required>
+        <input type="email" id="email" name="email" required autoComplete="email" className="field-input" />
       </Field>
 
-      <Field label="What do you need?" name="need" required>
-        <select id="need" name="need" required className={inputClass}>
-          <option value="">Select one…</option>
-          <option value="content">Content</option>
-          <option value="ads">Ads</option>
-          <option value="both">Both</option>
-          <option value="not-sure">Not sure yet</option>
+      <Field label="Phone" name="phone" required>
+        <input type="tel" id="phone" name="phone" required autoComplete="tel" className="field-input" />
+      </Field>
+
+      <Field label="How did you hear about us?" name="source" required>
+        <select id="source" name="source" required className="field-input" defaultValue="">
+          <option value="" disabled>
+            Select an option
+          </option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+          <option value="google">Google search</option>
+          <option value="referral">Referral / word of mouth</option>
+          <option value="lineage-films">Lineage Films</option>
+          <option value="other">Other</option>
         </select>
       </Field>
 
-      <Field label="Message" name="message" required>
-        <textarea
-          id="message"
-          name="message"
-          required
-          rows={5}
-          className={`${inputClass} resize-y`}
-        />
+      <Field
+        label="What are you hoping to achieve with your content?"
+        name="goals"
+        required
+      >
+        <textarea id="goals" name="goals" required rows={5} className="field-input resize-y" />
       </Field>
 
       <button
         type="submit"
         disabled={status === "submitting"}
-        className="btn-primary w-full disabled:opacity-60 sm:w-auto"
+        className="btn-primary disabled:opacity-60"
       >
-        {status === "submitting" ? "Sending…" : "Send message"}
+        {status === "submitting" ? "Sending…" : "Send"}
       </button>
     </form>
   );
 }
-
-const inputClass =
-  "w-full rounded-lg border border-ink/15 bg-cream px-4 py-3 text-ink placeholder:text-ink/40 transition focus:border-oxblood focus:outline-none focus:ring-2 focus:ring-oxblood/20";
 
 function Field({
   label,
@@ -125,12 +111,9 @@ function Field({
 }) {
   return (
     <div>
-      <label
-        htmlFor={name}
-        className="mb-2 block text-sm font-medium text-ink/80"
-      >
+      <label htmlFor={name} className="mb-2 block text-sm font-semibold text-white">
         {label}
-        {required && <span className="text-oxblood"> *</span>}
+        {required && <span className="font-normal text-white/40"> (required)</span>}
       </label>
       {children}
     </div>

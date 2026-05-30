@@ -8,25 +8,28 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        cream: "#F5F1E8",
-        bone: "#EBE5D6",
+        // Dark cinematic theme
+        noir: "#0A0A0A",
+        night: "#121212",
         ink: "#1A1A1A",
-        oxblood: "#6B2737",
-        terracotta: "#B5503B",
+        sage: "#9FB9A1",
+        "sage-deep": "#8AA88D",
+        bone: "#F4F1EA",
       },
       fontFamily: {
-        serif: ["var(--font-fraunces)", "Georgia", "serif"],
+        display: ["var(--font-archivo-expanded)", "system-ui", "sans-serif"],
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        serif: ["var(--font-fraunces)", "Georgia", "serif"],
       },
       maxWidth: {
-        container: "1200px",
+        container: "1240px",
       },
       letterSpacing: {
         widest2: "0.25em",
       },
       keyframes: {
         "fade-up": {
-          "0%": { opacity: "0", transform: "translateY(16px)" },
+          "0%": { opacity: "0", transform: "translateY(18px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
         },
         marquee: {
@@ -36,7 +39,7 @@ const config: Config = {
       },
       animation: {
         "fade-up": "fade-up 0.7s ease-out both",
-        marquee: "marquee 40s linear infinite",
+        marquee: "marquee 38s linear infinite",
       },
     },
   },
