@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { BookCallButton } from "@/components/Booking";
 
 // Vimeo background clip. `background=1` gives a muted, looping, controls-free
@@ -10,17 +9,9 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden text-center">
       {/* Full-bleed cinematic background video (z-0 so the section's content,
-          at z-10, sits above it — and nothing paints over the video). */}
+          at z-10, sits above it — and nothing paints over the video).
+          Loads black via bg-noir, then the video fades in. */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-noir">
-        {/* Poster fallback shown until the video loads / if embedding is blocked */}
-        <Image
-          src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000&auto=format&fit=crop"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
         <iframe
           src={VIMEO_SRC}
           title="Convert Studios showreel"
