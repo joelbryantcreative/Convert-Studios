@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Logo } from "@/components/Logo";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -39,14 +39,7 @@ export function SiteHeader() {
     >
       <div className="container-c flex items-center justify-between px-6 py-4 md:px-10">
         <Link href="/" aria-label="Convert Studios home" className="flex items-center">
-          <Image
-            src="/logo-white.png"
-            alt="Convert Studios"
-            width={66}
-            height={48}
-            priority
-            className="h-10 w-auto md:h-11"
-          />
+          <Logo tone="light" priority className="h-10 w-auto md:h-11" />
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
