@@ -1,22 +1,26 @@
-import Image from "next/image";
 import { BookCallButton } from "@/components/Booking";
+
+// Vimeo background clip. `background=1` gives a muted, looping, controls-free
+// autoplay embed. The video's Vimeo privacy must allow embedding for it to show.
+const VIMEO_ID = "1195077840";
+const VIMEO_SRC = `https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1`;
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden">
-      {/* Cinematic still placeholder */}
-      <div className="absolute inset-0 -z-10">
-        <Image
-          src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000&auto=format&fit=crop"
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
+    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-bone">
+      {/* Full-bleed cinematic background video */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <iframe
+          src={VIMEO_SRC}
+          title="Convert Studios showreel"
+          allow="autoplay; fullscreen; picture-in-picture"
+          aria-hidden="true"
+          tabIndex={-1}
+          className="pointer-events-none absolute left-1/2 top-1/2 h-[56.25vw] min-h-[100svh] w-screen min-w-[177.78svh] -translate-x-1/2 -translate-y-1/2 border-0"
         />
-        {/* Cream wash so the type stays the hero */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/90 to-cream/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-cream/30" />
+        {/* Cream scrims keep the dark headline legible over the footage */}
+        <div className="absolute inset-0 bg-gradient-to-r from-cream via-cream/85 to-cream/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-cream/20" />
       </div>
 
       <div className="container-c px-6 pt-32 pb-20 md:px-10 md:pt-40">
