@@ -4,6 +4,7 @@ import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
 import { BookingProvider } from "@/components/Booking";
+import { VideoProvider } from "@/components/VideoProvider";
 
 const archivoExpanded = Archivo({
   subsets: ["latin"],
@@ -76,9 +77,11 @@ export default function RootLayout({
     >
       <body className="bg-noir font-sans text-white antialiased">
         <BookingProvider>
-          <SiteHeader />
-          <main>{children}</main>
-          <Footer />
+          <VideoProvider>
+            <SiteHeader />
+            <main>{children}</main>
+            <Footer />
+          </VideoProvider>
         </BookingProvider>
       </body>
     </html>

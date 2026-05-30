@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { ProcessSteps } from "@/components/ProcessSteps";
+import { VideoTrigger } from "@/components/VideoProvider";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -8,21 +9,16 @@ export const metadata: Metadata = {
     "Story-led short-form videos and cinematic brand films from Convert Studios — crafted to capture attention, build trust, and convert viewers into customers.",
 };
 
-// Placeholder reels — swap posters/links for real short-form videos.
+// Real Vimeo showreel — swap per-reel IDs for individual clips as they're added.
+const VIMEO_ID = "1195077840";
+
+// Placeholder reel posters — swap for real short-form clips + their own IDs.
 const reels = [
   { poster: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop", duration: "0:47" },
   { poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop", duration: "0:51" },
   { poster: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600&auto=format&fit=crop", duration: "0:41" },
   { poster: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop", duration: "0:42" },
   { poster: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop", duration: "0:55" },
-];
-
-// Placeholder brand films — swap posters/links for real Vimeo embeds.
-const films = [
-  { poster: "https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?q=80&w=1200&auto=format&fit=crop", client: "Hvar Away" },
-  { poster: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=80&w=1200&auto=format&fit=crop", client: "Harbourline Residences" },
-  { poster: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop", client: "Saltwater" },
-  { poster: "https://images.unsplash.com/photo-1505761671935-60b3a7427bad?q=80&w=1200&auto=format&fit=crop", client: "Meridian Co." },
 ];
 
 export default function WorkPage() {
@@ -39,9 +35,11 @@ export default function WorkPage() {
 
           <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-5 md:overflow-visible [&::-webkit-scrollbar]:hidden">
             {reels.map((reel, i) => (
-              <div
+              <VideoTrigger
                 key={i}
-                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-night ring-1 ring-white/10 md:w-auto"
+                videoId={VIMEO_ID}
+                label="Play short-form video"
+                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-night text-left ring-1 ring-white/10 md:w-auto"
               >
                 <Image
                   src={reel.poster}
@@ -60,38 +58,28 @@ export default function WorkPage() {
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>
                   </div>
                 </div>
-              </div>
+              </VideoTrigger>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Brand films grid */}
-      <section className="bg-noir pb-8">
-        <div className="container-c px-6 pb-14 text-center md:px-10">
-          <h2 className="mx-auto max-w-3xl font-display text-2xl leading-snug text-white md:text-4xl">
+      {/* Brand film showreel — real Vimeo embed */}
+      <section className="bg-noir pb-12">
+        <div className="container-c px-6 md:px-10">
+          <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-white md:text-4xl">
             Powerful brand stories crafted to showcase who you are, what you do,
             and why clients choose you.
           </h2>
-        </div>
-        <div className="grid gap-1 sm:grid-cols-2">
-          {films.map((film, i) => (
-            <div key={i} className="group relative aspect-video overflow-hidden bg-night">
-              <Image
-                src={film.poster}
-                alt={`${film.client} brand film still`}
-                fill
-                loading="lazy"
-                sizes="(max-width: 640px) 100vw, 50vw"
-                className="object-cover transition duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-noir/20 transition group-hover:bg-noir/10" />
-              <PlayBadge />
-              <span className="absolute bottom-4 left-5 font-display text-sm uppercase tracking-widest2 text-white/90">
-                {film.client}
-              </span>
-            </div>
-          ))}
+          <div className="relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-night ring-1 ring-white/10">
+            <iframe
+              src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0&dnt=1`}
+              title="Convert Studios brand film"
+              allow="autoplay; fullscreen; picture-in-picture"
+              loading="lazy"
+              className="absolute inset-0 h-full w-full border-0"
+            />
+          </div>
         </div>
       </section>
 
