@@ -13,15 +13,15 @@ html {
 }
 
 body {
-  background-color: #0a0a0a;
-  color: #ffffff;
+  background-color: #f5f1e8;
+  color: #1a1a1a;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: #9fb9a1;
-  color: #0a0a0a;
+  background: #6b2737;
+  color: #f5f1e8;
 }
 
 @layer components {
@@ -51,24 +51,24 @@ body {
   }
 
   .eyebrow {
-    @apply text-xs font-medium uppercase tracking-widest2 text-white/50;
+    @apply text-xs font-medium uppercase tracking-widest2 text-slate;
   }
 
-  /* White pill button on dark theme */
+  /* Oxblood pill button (primary CTA / brand moment) */
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-sm font-semibold tracking-wide text-noir transition-all duration-300 hover:bg-sage focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sage;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-oxblood px-8 py-4 text-sm font-semibold tracking-wide text-bone transition-all duration-300 hover:bg-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oxblood;
   }
 
   .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/25 px-8 py-4 text-sm font-semibold tracking-wide text-white transition-all duration-300 hover:border-white hover:bg-white hover:text-noir;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-8 py-4 text-sm font-semibold tracking-wide text-ink transition-all duration-300 hover:border-ink hover:bg-ink hover:text-bone;
   }
 
   .link-underline {
     @apply relative inline-block after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-current after:transition-all after:duration-300 hover:after:w-full;
   }
 
-  /* Light form inputs on dark backgrounds */
+  /* Form inputs on the light theme */
   .field-input {
-    @apply w-full rounded-none border-0 bg-white px-4 py-3.5 text-ink outline-none ring-2 ring-transparent transition placeholder:text-ink/40 focus:ring-sage;
+    @apply w-full rounded-none border border-slate/30 bg-white px-4 py-3.5 text-ink outline-none ring-2 ring-transparent transition placeholder:text-slate/60 focus:border-oxblood focus:ring-oxblood/20;
   }
 }

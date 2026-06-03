@@ -7,13 +7,13 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <section className="bg-noir px-6 pb-24 pt-36 md:px-10 md:pt-44">
+    <section className="bg-bone px-6 pb-24 pt-36 md:px-10 md:pt-44">
       <div className="container-c max-w-3xl">
         <p className="eyebrow mb-5">Legal</p>
-        <h1 className="display-lg text-white">Privacy Policy</h1>
-        <p className="mt-4 text-sm text-white/45">Last updated: June 2026</p>
+        <h1 className="display-lg text-ink">Privacy Policy</h1>
+        <p className="mt-4 text-sm text-slate">Last updated: June 2026</p>
 
-        <div className="mt-10 space-y-6 text-white/70 [&_a]:text-sage [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-xl [&_h2]:text-white [&_li]:leading-relaxed [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
+        <div className="mt-10 space-y-6 text-ink/75 [&_a]:text-oxblood [&_h2]:mt-10 [&_h2]:font-display [&_h2]:text-xl [&_h2]:text-ink [&_li]:leading-relaxed [&_p]:leading-relaxed [&_ul]:list-disc [&_ul]:space-y-2 [&_ul]:pl-5">
           <p className="text-lg">
             Convert Studios (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;)
             respects your privacy and is committed to protecting your personal
@@ -137,7 +137,7 @@ export default function PrivacyPage() {
             email us at hello@convertstudios.au.
           </p>
 
-          <p className="border-t border-white/10 pt-6 text-sm text-white/40">
+          <p className="border-t border-ink/10 pt-6 text-sm text-slate">
             This privacy policy is provided as general information and is not
             legal advice. We recommend having it reviewed by a qualified
             professional to ensure it suits your specific circumstances.

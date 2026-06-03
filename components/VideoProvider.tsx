@@ -56,13 +56,13 @@ export function VideoProvider({ children }: { children: React.ReactNode }) {
           <button
             aria-label="Close video"
             onClick={close}
-            className="absolute inset-0 bg-noir/85 backdrop-blur-sm"
+            className="absolute inset-0 bg-ink/85 backdrop-blur-sm"
           />
           <div className="relative z-10 w-full max-w-5xl animate-fade-up">
             <button
               onClick={close}
               aria-label="Close"
-              className="absolute -top-11 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition hover:bg-white hover:text-noir"
+              className="absolute -top-11 right-0 flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white transition hover:bg-white hover:text-ink"
             >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />

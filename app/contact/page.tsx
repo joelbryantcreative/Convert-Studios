@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="relative overflow-hidden bg-noir px-6 pb-24 pt-36 md:px-10 md:pt-44">
-      <TextureBg overlay="bg-noir/55" />
+    <section className="relative overflow-hidden bg-bone px-6 pb-24 pt-36 md:px-10 md:pt-44">
+      <TextureBg overlay="bg-bone/55" />
 
       <div className="container-c relative z-10">
         <div className="mb-14 text-center">
-          <h1 className="display-lg text-white">Let&apos;s talk!</h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/75">
+          <h1 className="display-lg text-ink">Let&apos;s talk!</h1>
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-ink/75">
             Interested in working together? Fill out some info and we&apos;ll be
             in touch shortly. We can&apos;t wait to hear from you!
           </p>

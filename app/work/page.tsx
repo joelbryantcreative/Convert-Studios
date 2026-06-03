@@ -33,10 +33,10 @@ export default function WorkPage() {
   return (
     <>
       {/* Short-form reels */}
-      <section className="bg-noir px-6 pb-20 pt-36 md:px-10 md:pt-44">
+      <section className="bg-bone px-6 pb-20 pt-36 md:px-10 md:pt-44">
         <div className="container-c text-center">
-          <h1 className="display-lg text-sage">Visual stories that deliver results.</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+          <h1 className="display-lg text-oxblood">Visual stories that deliver results.</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">
             Short-form videos crafted to capture attention, build trust, and
             convert viewers into customers.
           </p>
@@ -47,7 +47,7 @@ export default function WorkPage() {
                 key={i}
                 videoId={VIMEO_ID}
                 label="Play short-form video"
-                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-night text-left ring-1 ring-white/10 md:w-auto"
+                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-mist text-left ring-1 ring-ink/10 md:w-auto"
               >
                 <Image
                   src={reel.poster}
@@ -57,7 +57,7 @@ export default function WorkPage() {
                   sizes="(max-width: 768px) 70vw, 18vw"
                   className="object-cover transition duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-noir/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
                 <PlayBadge />
                 <div className="absolute inset-x-3 bottom-3 flex items-center justify-between text-[11px] text-white/80">
                   <span>0:00 / {reel.duration}</span>
@@ -73,16 +73,16 @@ export default function WorkPage() {
       </section>
 
       {/* Brand films: real Vimeo embeds, two per row */}
-      <section className="bg-noir pb-12">
+      <section className="bg-bone pb-12">
         <div className="container-c px-6 md:px-10">
-          <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-white md:text-4xl">
+          <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-ink md:text-4xl">
             Powerful brand stories crafted to showcase who you are, what you do,
             and why clients choose you.
           </h2>
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
             {films.map((film) => (
               <figure key={film.id}>
-                <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-night ring-1 ring-white/10">
+                <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-mist ring-1 ring-ink/10">
                   <iframe
                     src={`https://player.vimeo.com/video/${film.id}?title=0&byline=0&portrait=0&dnt=1`}
                     title={`${film.client} brand film`}
@@ -91,7 +91,7 @@ export default function WorkPage() {
                     className="absolute inset-0 h-full w-full border-0"
                   />
                 </div>
-                <figcaption className="mt-4 text-center text-xs uppercase tracking-widest2 text-sage">
+                <figcaption className="mt-4 text-center text-xs uppercase tracking-widest2 text-oxblood">
                   {film.client}
                 </figcaption>
               </figure>

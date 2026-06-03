@@ -84,10 +84,10 @@ export function Testimonials() {
   const next = () => setStart((s) => Math.min(maxStart, s + 1));
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-noir section-pad">
+    <section id="testimonials" className="relative overflow-hidden bg-bone section-pad">
       <TextureBg />
       <div className="container-c relative z-10">
-        <h2 className="text-center font-display text-3xl uppercase tracking-tight text-white md:text-5xl">
+        <h2 className="text-center font-display text-3xl uppercase tracking-tight text-ink md:text-5xl">
           Testimonials
         </h2>
 
@@ -122,21 +122,21 @@ export function Testimonials() {
 function Card({ quote, name, role, image, initials, color }: Testimonial) {
   return (
     <figure className="flex flex-col items-center text-center">
-      <div className="relative h-28 w-28 overflow-hidden rounded-full ring-1 ring-white/15">
+      <div className="relative h-28 w-28 overflow-hidden rounded-full ring-1 ring-ink/10">
         {image ? (
           <Image src={image} alt={name} fill loading="lazy" sizes="112px" className="scale-105 object-cover" />
         ) : (
           <div
             className="flex h-full w-full items-center justify-center"
-            style={{ backgroundColor: color ?? "#2F6E5A" }}
+            style={{ backgroundColor: color ?? "#6B2737" }}
           >
-            <span className="font-display text-3xl text-white">{initials}</span>
+            <span className="font-display text-3xl text-bone">{initials}</span>
           </div>
         )}
       </div>
-      <figcaption className="mt-6 font-display text-lg text-white">{name}</figcaption>
-      <p className="mt-1 text-xs uppercase tracking-widest2 text-sage">{role}</p>
-      <blockquote className="mt-5 max-w-xs leading-relaxed text-white/70">
+      <figcaption className="mt-6 font-display text-lg text-ink">{name}</figcaption>
+      <p className="mt-1 text-xs uppercase tracking-widest2 text-oxblood">{role}</p>
+      <blockquote className="mt-5 max-w-xs leading-relaxed text-ink/75">
         &ldquo;{quote}&rdquo;
       </blockquote>
     </figure>
@@ -157,7 +157,7 @@ function Arrow({
       onClick={onClick}
       disabled={disabled}
       aria-label={dir === "left" ? "Previous testimonials" : "Next testimonials"}
-      className="flex h-12 w-12 items-center justify-center rounded-full bg-white/90 text-noir transition hover:bg-sage disabled:cursor-not-allowed disabled:opacity-30"
+      className="flex h-12 w-12 items-center justify-center rounded-full bg-ink text-bone transition hover:bg-oxblood disabled:cursor-not-allowed disabled:opacity-30"
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         {dir === "left" ? (
