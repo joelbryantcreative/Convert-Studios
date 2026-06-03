@@ -9,7 +9,6 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/work", label: "Work" },
   { href: "/contact", label: "Contact" },
-  { href: "/store", label: "Store" },
 ];
 
 export function SiteHeader() {

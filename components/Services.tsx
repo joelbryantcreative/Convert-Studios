@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { BookCallButton } from "@/components/Booking";
+import { TextureBg } from "@/components/TextureBg";
 
 const services = [
   {
@@ -27,16 +28,7 @@ export function Services() {
 
   return (
     <section id="services" className="relative scroll-mt-20 overflow-hidden bg-noir">
-      {/* Soft cinematic backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-0 bg-cover bg-center opacity-20 blur-sm"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=80&w=2000&auto=format&fit=crop)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 -z-0 bg-noir/70" aria-hidden="true" />
+      <TextureBg overlay="bg-noir/65" />
 
       <div className="container-c relative z-10 grid gap-14 px-6 py-24 md:grid-cols-2 md:gap-20 md:px-10 md:py-32">
         <div>

@@ -1,4 +1,5 @@
 import { BookCallButton } from "@/components/Booking";
+import { TextureBg } from "@/components/TextureBg";
 
 const steps = [
   {
@@ -30,8 +31,9 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="section-pad bg-noir">
-      <div className="container-c">
+    <section className="relative overflow-hidden bg-noir section-pad">
+      <TextureBg overlay="bg-noir/65" />
+      <div className="container-c relative z-10">
         <h2 className="text-center display-lg text-sage">
           A proven process to attract the clients you want.
         </h2>

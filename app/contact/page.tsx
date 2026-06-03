@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ContactForm } from "@/components/ContactForm";
+import { TextureBg } from "@/components/TextureBg";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -10,16 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="relative overflow-hidden bg-noir px-6 pb-24 pt-36 md:px-10 md:pt-44">
-      {/* Soft cinematic backdrop */}
-      <div
-        className="pointer-events-none absolute inset-0 -z-0 bg-cover bg-center opacity-20 blur-sm"
-        style={{
-          backgroundImage:
-            "url(https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2000&auto=format&fit=crop)",
-        }}
-        aria-hidden="true"
-      />
-      <div className="absolute inset-0 -z-0 bg-noir/70" aria-hidden="true" />
+      <TextureBg overlay="bg-noir/65" />
 
       <div className="container-c relative z-10">
         <div className="mb-14 text-center">
