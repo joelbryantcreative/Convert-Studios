@@ -39,7 +39,7 @@ const config: Config = {
       },
       animation: {
         "fade-up": "fade-up 0.7s ease-out both",
-        marquee: "marquee 38s linear infinite",
+        marquee: "marquee 76s linear infinite",
       },
     },
   },
