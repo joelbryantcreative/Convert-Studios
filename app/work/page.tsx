@@ -33,10 +33,10 @@ export default function WorkPage() {
   return (
     <>
       {/* Short-form reels */}
-      <section className="bg-bone px-6 pb-20 pt-36 md:px-10 md:pt-44">
+      <section className="bg-ink px-6 pb-20 pt-36 md:px-10 md:pt-44">
         <div className="container-c text-center">
-          <h1 className="display-lg text-oxblood">Visual stories that deliver results.</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">
+          <h1 className="display-lg text-bone">Visual stories that deliver results.</h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-bone/75">
             Short-form videos crafted to capture attention, build trust, and
             convert viewers into customers.
           </p>
@@ -47,7 +47,7 @@ export default function WorkPage() {
                 key={i}
                 videoId={VIMEO_ID}
                 label="Play short-form video"
-                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-mist text-left ring-1 ring-ink/10 md:w-auto"
+                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-ink text-left ring-1 ring-bone/10 md:w-auto"
               >
                 <Image
                   src={reel.poster}
@@ -73,16 +73,16 @@ export default function WorkPage() {
       </section>
 
       {/* Brand films: real Vimeo embeds, two per row */}
-      <section className="bg-bone pb-12">
+      <section className="bg-ink pb-12">
         <div className="container-c px-6 md:px-10">
-          <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-ink md:text-4xl">
+          <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-bone md:text-4xl">
             Powerful brand stories crafted to showcase who you are, what you do,
             and why clients choose you.
           </h2>
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
             {films.map((film) => (
               <figure key={film.id}>
-                <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-mist ring-1 ring-ink/10">
+                <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-bone/10">
                   <iframe
                     src={`https://player.vimeo.com/video/${film.id}?title=0&byline=0&portrait=0&dnt=1`}
                     title={`${film.client} brand film`}
@@ -91,7 +91,7 @@ export default function WorkPage() {
                     className="absolute inset-0 h-full w-full border-0"
                   />
                 </div>
-                <figcaption className="mt-4 text-center text-xs uppercase tracking-widest2 text-oxblood">
+                <figcaption className="mt-4 text-center text-xs uppercase tracking-widest2 text-bone/60">
                   {film.client}
                 </figcaption>
               </figure>

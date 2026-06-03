@@ -75,7 +75,7 @@ export default function RootLayout({
       lang="en-AU"
       className={`${archivoExpanded.variable} ${inter.variable} ${fraunces.variable}`}
     >
-      <body className="bg-bone font-sans text-ink antialiased">
+      <body className="bg-ink font-sans text-bone antialiased">
         <BookingProvider>
           <VideoProvider>
             <SiteHeader />
