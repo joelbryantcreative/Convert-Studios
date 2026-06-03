@@ -32,7 +32,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "We secured Joel for a summer campaign video for our supplement company, Bytropic Nutrition. From the very first meeting he understood the creative direction, and the attention to detail was second to none. The outcome exceeded all expectations. Joel is one of the most talented filmmakers in the Northern Rivers.",
+      "We secured you guys for a summer campaign video for our supplement company, Bytropic Nutrition. From the very first meeting you understood the creative direction, and the attention to detail was second to none. The outcome exceeded all expectations. You guys are some of the most talented and strategic thinkers in the Northern Rivers.",
     name: "Nathan Tanner",
     role: "Founder, Bytropic Nutrition",
     image: "/testimonials/nathan-tanner.jpg",
