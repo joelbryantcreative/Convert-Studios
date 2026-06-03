@@ -18,7 +18,7 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Convert Studios ran the paid ad campaigns for my Buyers Agent Institute and the results spoke for themselves: more qualified leads at a lower cost, with creative that actually converted. Joel understands both the storytelling and the numbers behind it.",
+      "Convert Studios shot the paid ad campaigns for my Buyers Agent Institute and the results spoke for themselves. More qualified leads at a lower cost, with creative that actually converted. They understand both the storytelling and the numbers behind it all.",
     name: "Ben Handler",
     role: "Founder, Buyers Agent Institute",
     image: "/testimonials/ben-handler.jpg",
