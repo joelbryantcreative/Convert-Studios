@@ -12,6 +12,14 @@ export const metadata: Metadata = {
 // Real Vimeo showreel. Swap per-reel IDs for individual clips as they're added.
 const VIMEO_ID = "1195077840";
 
+// Brand films, two per row. Real Vimeo embeds.
+const films = [
+  { client: "Bytropic Nutrition", id: "1078502850" },
+  { client: "Rogue Watches", id: "1052845867" },
+  { client: "Fat Fish Bikes", id: "1181474237" },
+  { client: "Craved This", id: "1181461629" },
+];
+
 // Placeholder reel posters. Swap for real short-form clips + their own IDs.
 const reels = [
   { poster: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop", duration: "0:47" },
@@ -64,21 +72,30 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Brand film showreel: real Vimeo embed */}
+      {/* Brand films: real Vimeo embeds, two per row */}
       <section className="bg-noir pb-12">
         <div className="container-c px-6 md:px-10">
           <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-white md:text-4xl">
             Powerful brand stories crafted to showcase who you are, what you do,
             and why clients choose you.
           </h2>
-          <div className="relative mx-auto aspect-video w-full max-w-4xl overflow-hidden rounded-2xl bg-night ring-1 ring-white/10">
-            <iframe
-              src={`https://player.vimeo.com/video/${VIMEO_ID}?title=0&byline=0&portrait=0&dnt=1`}
-              title="Convert Studios brand film"
-              allow="autoplay; fullscreen; picture-in-picture"
-              loading="lazy"
-              className="absolute inset-0 h-full w-full border-0"
-            />
+          <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
+            {films.map((film) => (
+              <figure key={film.id}>
+                <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-night ring-1 ring-white/10">
+                  <iframe
+                    src={`https://player.vimeo.com/video/${film.id}?title=0&byline=0&portrait=0&dnt=1`}
+                    title={`${film.client} brand film`}
+                    allow="autoplay; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full border-0"
+                  />
+                </div>
+                <figcaption className="mt-4 text-center text-xs uppercase tracking-widest2 text-sage">
+                  {film.client}
+                </figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
