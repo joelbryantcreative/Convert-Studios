@@ -124,7 +124,7 @@ function Card({ quote, name, role, image, initials, color }: Testimonial) {
     <figure className="flex flex-col items-center text-center">
       <div className="relative h-28 w-28 overflow-hidden rounded-full ring-1 ring-white/15">
         {image ? (
-          <Image src={image} alt={name} fill loading="lazy" sizes="112px" className="object-cover" />
+          <Image src={image} alt={name} fill loading="lazy" sizes="112px" className="scale-105 object-cover" />
         ) : (
           <div
             className="flex h-full w-full items-center justify-center"
