@@ -36,7 +36,7 @@ export default function WorkPage() {
       <section className="bg-ink px-6 pb-20 pt-36 md:px-10 md:pt-44">
         <div className="container-c text-center">
           <h1 className="display-lg text-bone">Visual stories that deliver results.</h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-bone/75">
+          <p className="mx-auto mt-6 text-lg leading-relaxed text-bone/75">
             Short-form videos crafted to capture attention, build trust, and
             convert viewers into customers.
           </p>
