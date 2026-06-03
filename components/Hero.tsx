@@ -33,11 +33,11 @@ export function Hero() {
           Content That Converts
         </h1>
         <p
-          className="mx-auto mt-7 max-w-2xl animate-fade-up text-lg leading-relaxed text-white/85 [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] md:text-xl"
+          className="mx-auto mt-7 max-w-4xl animate-fade-up text-balance text-lg leading-relaxed text-white/85 [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] md:text-xl"
           style={{ animationDelay: "120ms" }}
         >
-          We help businesses turn the way they show up online into a measurable
-          engine for growth — through story-led content, beautifully made and
+          We help businesses turn how they show up online into a measurable engine
+          for growth, with story-led content that&apos;s beautifully made and
           strategically distributed.
         </p>
         <div
