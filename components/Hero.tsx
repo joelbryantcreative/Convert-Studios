@@ -2,7 +2,7 @@ import { BookCallButton } from "@/components/Booking";
 
 // Vimeo background clip. `background=1` gives a muted, looping, controls-free
 // autoplay embed. The video's Vimeo privacy must allow embedding for it to show.
-const VIMEO_ID = "1195077840";
+const VIMEO_ID = "1197941576";
 const VIMEO_SRC = `https://player.vimeo.com/video/${VIMEO_ID}?background=1&autoplay=1&loop=1&muted=1&autopause=0&dnt=1`;
 
 export function Hero() {
