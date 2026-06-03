@@ -1,24 +1,50 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-// Placeholder testimonials — first name + last initial. Swap for real ones.
-const testimonials = [
+type Testimonial = {
+  quote: string;
+  name: string;
+  role: string;
+  image?: string;
+  initials?: string;
+  color?: string;
+};
+
+// Real client testimonials + a few placeholders. Swap placeholders as more
+// reviews come in.
+const testimonials: Testimonial[] = [
   {
     quote:
-      "They didn't just make us look good — they made us money. Within three months our enquiries doubled and we finally knew which content was actually working.",
-    name: "Sarah M.",
-    role: "Founder, allied health clinic",
-    avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&auto=format&fit=crop",
+      "Convert Studios ran the paid ad campaigns for my Buyers Agent Institute and the results spoke for themselves — more qualified leads at a lower cost, with creative that actually converted. Joel understands both the storytelling and the numbers behind it.",
+    name: "Ben Handler",
+    role: "Founder, Buyers Agent Institute",
+    initials: "B",
+    color: "#2F6E5A",
+  },
+  {
+    quote:
+      "Joel created content for our watch company and we couldn't be happier. The quality of the videos was excellent — he captured our watches in a way that felt professional, premium, and true to our brand. Easy to work with, great communication, and everything delivered promptly. Highly recommend.",
+    name: "Rogue Watches",
+    role: "Premium watch brand",
+    initials: "R",
+    color: "#A8432B",
+  },
+  {
+    quote:
+      "We secured Joel for a summer campaign video for our supplement company, Bytropic Nutrition. From the very first meeting he understood the creative direction, and the attention to detail was second to none. The outcome exceeded all expectations — one of the most talented filmmakers in the Northern Rivers.",
+    name: "Nathan Tanner",
+    role: "Founder, Bytropic Nutrition",
+    initials: "N",
+    color: "#5B5BD6",
   },
   {
     quote:
       "It felt less like hiring an agency and more like adding a partner who genuinely cared whether the numbers moved.",
     name: "James T.",
     role: "Director, building & construction",
-    avatar:
+    image:
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
   },
   {
@@ -26,39 +52,35 @@ const testimonials = [
       "The quality of the films is on another level. But the part that surprised me was how strategic it all was underneath the beauty.",
     name: "Priya N.",
     role: "Owner, boutique hospitality group",
-    avatar:
+    image:
       "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    quote:
-      "We'd burned money on ads before with nothing to show for it. Convert Studios gave us a system, not just a campaign.",
-    name: "Daniel K.",
-    role: "GM, professional services",
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
   },
   {
     quote:
       "Every month we get a clear read on what's landing. No fluff, no vanity metrics — just leads and revenue.",
     name: "Amara O.",
     role: "Marketing lead, e-commerce brand",
-    avatar:
+    image:
       "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=400&auto=format&fit=crop",
-  },
-  {
-    quote:
-      "They understood our story before they ever picked up a camera. That's why the work converts.",
-    name: "Tom R.",
-    role: "Co-founder, fitness studio",
-    avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=400&auto=format&fit=crop",
   },
 ];
 
 export function Testimonials() {
+  const [perView, setPerView] = useState(3);
   const [start, setStart] = useState(0);
-  const perView = 3;
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    const update = () => setPerView(mq.matches ? 3 : 1);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
   const maxStart = Math.max(0, testimonials.length - perView);
+  useEffect(() => {
+    setStart((s) => Math.min(s, maxStart));
+  }, [maxStart]);
 
   const prev = () => setStart((s) => Math.max(0, s - 1));
   const next = () => setStart((s) => Math.min(maxStart, s + 1));
@@ -70,26 +92,26 @@ export function Testimonials() {
           Testimonials
         </h2>
 
-        {/* Desktop / tablet: 3-up window */}
-        <div className="mt-16 hidden md:block">
-          <div className="grid grid-cols-3 gap-10">
-            {testimonials.slice(start, start + perView).map((t) => (
-              <Card key={t.name} {...t} />
+        {/* Sliding track */}
+        <div className="mt-16 overflow-hidden">
+          <div
+            className="flex transition-transform duration-500 ease-out"
+            style={{ transform: `translateX(-${start * (100 / perView)}%)` }}
+          >
+            {testimonials.map((t) => (
+              <div
+                key={t.name}
+                className="shrink-0 px-4"
+                style={{ flexBasis: `${100 / perView}%` }}
+              >
+                <Card {...t} />
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Mobile: horizontal snap scroll */}
-        <div className="mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4 md:hidden [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-          {testimonials.map((t) => (
-            <div key={t.name} className="w-[78%] shrink-0 snap-center">
-              <Card {...t} />
-            </div>
-          ))}
-        </div>
-
-        {/* Arrows (desktop) */}
-        <div className="mt-12 hidden items-center justify-center gap-4 md:flex">
+        {/* Arrows */}
+        <div className="mt-12 flex items-center justify-center gap-4">
           <Arrow dir="left" onClick={prev} disabled={start === 0} />
           <Arrow dir="right" onClick={next} disabled={start === maxStart} />
         </div>
@@ -98,32 +120,22 @@ export function Testimonials() {
   );
 }
 
-function Card({
-  quote,
-  name,
-  role,
-  avatar,
-}: {
-  quote: string;
-  name: string;
-  role: string;
-  avatar: string;
-}) {
+function Card({ quote, name, role, image, initials, color }: Testimonial) {
   return (
     <figure className="flex flex-col items-center text-center">
       <div className="relative h-28 w-28 overflow-hidden rounded-full ring-1 ring-white/15">
-        <Image
-          src={avatar}
-          alt={name}
-          fill
-          loading="lazy"
-          sizes="112px"
-          className="object-cover"
-        />
+        {image ? (
+          <Image src={image} alt={name} fill loading="lazy" sizes="112px" className="object-cover" />
+        ) : (
+          <div
+            className="flex h-full w-full items-center justify-center"
+            style={{ backgroundColor: color ?? "#2F6E5A" }}
+          >
+            <span className="font-display text-3xl text-white">{initials}</span>
+          </div>
+        )}
       </div>
-      <figcaption className="mt-6 font-display text-lg text-white">
-        {name}
-      </figcaption>
+      <figcaption className="mt-6 font-display text-lg text-white">{name}</figcaption>
       <p className="mt-1 text-xs uppercase tracking-widest2 text-sage">{role}</p>
       <blockquote className="mt-5 max-w-xs leading-relaxed text-white/70">
         &ldquo;{quote}&rdquo;
