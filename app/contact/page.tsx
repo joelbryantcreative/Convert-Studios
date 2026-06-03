@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Interested in working together? Tell us about your business and what you want from your content — we'll be in touch shortly.",
+    "Interested in working together? Tell us about your business and what you want from your content, and we'll be in touch shortly.",
 };
 
 export default function ContactPage() {

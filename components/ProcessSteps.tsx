@@ -4,7 +4,7 @@ const steps = [
   {
     num: "01",
     title: "Brand Deep Dive",
-    body: "We immerse ourselves in your business to uncover your real value, your ideal client, and your growth goals — so every piece of content is built to attract the right audience.",
+    body: "We immerse ourselves in your business to uncover your real value, your ideal client, and your growth goals, so every piece of content is built to attract the right audience.",
   },
   {
     num: "02",
@@ -14,7 +14,7 @@ const steps = [
   {
     num: "03",
     title: "Film & Edit",
-    body: "Our team handles every part of production — directing, filming, and editing cinematic content that reflects your brand and moves your audience.",
+    body: "Our team handles every part of production: directing, filming, and editing cinematic content that reflects your brand and moves your audience.",
   },
   {
     num: "04",

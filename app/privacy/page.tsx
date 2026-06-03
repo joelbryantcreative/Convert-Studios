@@ -22,7 +22,7 @@ export default function PrivacyPage() {
           <h2>Information we collect</h2>
           <p>
             When you contact us or book a call, we collect the details you
-            provide — such as your name, email address, phone number, and the
+            provide, such as your name, email address, phone number, and the
             message you send us. We may also collect basic analytics about how
             visitors use this website.
           </p>

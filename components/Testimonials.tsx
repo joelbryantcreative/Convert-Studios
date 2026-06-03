@@ -17,27 +17,24 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     quote:
-      "Convert Studios ran the paid ad campaigns for my Buyers Agent Institute and the results spoke for themselves — more qualified leads at a lower cost, with creative that actually converted. Joel understands both the storytelling and the numbers behind it.",
+      "Convert Studios ran the paid ad campaigns for my Buyers Agent Institute and the results spoke for themselves: more qualified leads at a lower cost, with creative that actually converted. Joel understands both the storytelling and the numbers behind it.",
     name: "Ben Handler",
     role: "Founder, Buyers Agent Institute",
-    initials: "B",
-    color: "#2F6E5A",
+    image: "/testimonials/ben-handler.jpg",
   },
   {
     quote:
-      "Joel created content for our watch company and we couldn't be happier. The quality of the videos was excellent — he captured our watches in a way that felt professional, premium, and true to our brand. Easy to work with, great communication, and everything delivered promptly. Highly recommend.",
+      "Joel created content for our watch company and we couldn't be happier. The quality of the videos was excellent, and he captured our watches in a way that felt professional, premium, and true to our brand. Easy to work with, great communication, and everything delivered promptly. Highly recommend.",
     name: "Rogue Watches",
     role: "Premium watch brand",
-    initials: "R",
-    color: "#A8432B",
+    image: "/testimonials/rogue-watches.jpg",
   },
   {
     quote:
-      "We secured Joel for a summer campaign video for our supplement company, Bytropic Nutrition. From the very first meeting he understood the creative direction, and the attention to detail was second to none. The outcome exceeded all expectations — one of the most talented filmmakers in the Northern Rivers.",
+      "We secured Joel for a summer campaign video for our supplement company, Bytropic Nutrition. From the very first meeting he understood the creative direction, and the attention to detail was second to none. The outcome exceeded all expectations. Joel is one of the most talented filmmakers in the Northern Rivers.",
     name: "Nathan Tanner",
     role: "Founder, Bytropic Nutrition",
-    initials: "N",
-    color: "#5B5BD6",
+    image: "/testimonials/nathan-tanner.jpg",
   },
   {
     quote:
@@ -57,7 +54,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Every month we get a clear read on what's landing. No fluff, no vanity metrics — just leads and revenue.",
+      "Every month we get a clear read on what's landing. No fluff, no vanity metrics, just leads and revenue.",
     name: "Amara O.",
     role: "Marketing lead, e-commerce brand",
     image:

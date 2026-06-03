@@ -6,13 +6,13 @@ import { VideoTrigger } from "@/components/VideoProvider";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Story-led short-form videos and cinematic brand films from Convert Studios — crafted to capture attention, build trust, and convert viewers into customers.",
+    "Story-led short-form videos and cinematic brand films from Convert Studios, crafted to capture attention, build trust, and convert viewers into customers.",
 };
 
-// Real Vimeo showreel — swap per-reel IDs for individual clips as they're added.
+// Real Vimeo showreel. Swap per-reel IDs for individual clips as they're added.
 const VIMEO_ID = "1195077840";
 
-// Placeholder reel posters — swap for real short-form clips + their own IDs.
+// Placeholder reel posters. Swap for real short-form clips + their own IDs.
 const reels = [
   { poster: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop", duration: "0:47" },
   { poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop", duration: "0:51" },
@@ -64,7 +64,7 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Brand film showreel — real Vimeo embed */}
+      {/* Brand film showreel: real Vimeo embed */}
       <section className="bg-noir pb-12">
         <div className="container-c px-6 md:px-10">
           <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-white md:text-4xl">

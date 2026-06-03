@@ -9,7 +9,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden text-center">
       {/* Full-bleed cinematic background video (z-0 so the section's content,
-          at z-10, sits above it — and nothing paints over the video).
+          at z-10, sits above it, and nothing paints over the video).
           Loads black via bg-noir, then the video fades in. */}
       <div className="absolute inset-0 z-0 overflow-hidden bg-noir">
         <iframe

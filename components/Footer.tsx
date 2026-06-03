@@ -13,7 +13,7 @@ export function Footer() {
               Convert Studios
             </Link>
             <p className="mt-4 text-sm text-white/45">
-              © Convert Studios 2026 — All Rights Reserved
+              © Convert Studios 2026. All Rights Reserved
             </p>
           </div>
 

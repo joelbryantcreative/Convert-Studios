@@ -14,7 +14,7 @@ export function Mission() {
             <div className="mt-7 space-y-5 text-lg leading-relaxed text-white/75">
               <p>
                 Most content is made to fill a feed. We make content that moves
-                your business forward — measured in leads, in revenue, and in how
+                your business forward, measured in leads, in revenue, and in how
                 often you stop having to chase.
               </p>
               <p>

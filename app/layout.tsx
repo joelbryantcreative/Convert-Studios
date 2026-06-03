@@ -33,11 +33,11 @@ const siteUrl = "https://convert.studios";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Convert Studios — Content that converts attention into customers",
+    default: "Convert Studios | Content that converts attention into customers",
     template: "%s · Convert Studios",
   },
   description:
-    "A filmmaker-led content marketing studio helping businesses turn the way they show up online into a measurable engine for growth — through story-led content and strategic paid distribution.",
+    "A filmmaker-led content marketing studio helping businesses turn the way they show up online into a measurable engine for growth, through story-led content and strategic paid distribution.",
   keywords: [
     "content marketing",
     "video production",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Convert Studios" }],
   openGraph: {
-    title: "Convert Studios — Content that converts attention into customers",
+    title: "Convert Studios | Content that converts attention into customers",
     description:
       "Story-led content, beautifully made and strategically distributed. We help businesses turn attention into measurable growth.",
     url: siteUrl,

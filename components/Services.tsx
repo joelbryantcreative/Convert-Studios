@@ -10,7 +10,7 @@ const services = [
   },
   {
     title: "Content",
-    body: "Cinematic, story-led content that shows your expertise and earns trust. Not just beautiful — strategically built to move your audience toward a decision.",
+    body: "Cinematic, story-led content that shows your expertise and earns trust. Not just beautiful, but strategically built to move your audience toward a decision.",
   },
   {
     title: "Lead Generation",

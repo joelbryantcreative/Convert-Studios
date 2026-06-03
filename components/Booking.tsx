@@ -11,7 +11,7 @@ import {
 // ---------------------------------------------------------------------------
 // Booking modal context
 // Wraps the app so any "Book a Game Plan Call" button can open the same modal.
-// The modal embeds a Calendly iframe placeholder — swap CALENDLY_URL for the
+// The modal embeds a Calendly iframe placeholder. Swap CALENDLY_URL for the
 // real scheduling link when it's ready.
 // ---------------------------------------------------------------------------
 
@@ -94,7 +94,7 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
                 </svg>
               </button>
             </div>
-            {/* Calendly iframe placeholder — swap src for the live link */}
+            {/* Calendly iframe placeholder: swap src for the live link */}
             <iframe
               src={CALENDLY_URL}
               title="Schedule a Game Plan Call with Convert Studios"
