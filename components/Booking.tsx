@@ -65,18 +65,18 @@ export function BookingProvider({ children }: { children: React.ReactNode }) {
             onClick={close}
             className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
           />
-          <div className="relative z-10 flex h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-bone shadow-2xl ring-1 ring-ink/10 animate-fade-up">
-            <div className="flex items-center justify-between border-b border-ink/10 px-6 py-4">
+          <div className="relative z-10 flex h-[85vh] w-full max-w-3xl flex-col overflow-hidden rounded-2xl bg-ink shadow-2xl ring-1 ring-bone/10 animate-fade-up">
+            <div className="flex items-center justify-between border-b border-bone/10 px-6 py-4">
               <div>
                 <p className="eyebrow">Convert Studios</p>
-                <h2 className="font-display text-lg text-ink">
+                <h2 className="font-display text-lg text-bone">
                   Book a Game Plan Call
                 </h2>
               </div>
               <button
                 onClick={close}
                 aria-label="Close"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/15 text-ink transition hover:bg-ink hover:text-bone"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-bone/15 text-bone transition hover:bg-bone hover:text-ink"
               >
                 <svg
                   width="16"

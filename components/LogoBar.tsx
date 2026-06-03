@@ -38,7 +38,7 @@ const clients: Client[] = [
 
 export function LogoBar() {
   return (
-    <section className="bg-bone py-12">
+    <section className="bg-ink py-12">
       {/* Edge-to-edge scrolling marquee */}
       <div className="group relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
         <div className="flex w-max animate-marquee items-center gap-12 px-6 group-hover:[animation-play-state:paused]">

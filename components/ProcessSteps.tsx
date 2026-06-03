@@ -31,13 +31,13 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="relative overflow-hidden bg-bone section-pad">
-      <TextureBg overlay="bg-bone/55" />
+    <section className="relative overflow-hidden bg-ink section-pad">
+      <TextureBg overlay="bg-ink/55" />
       <div className="container-c relative z-10">
-        <h2 className="text-center display-lg text-oxblood">
+        <h2 className="text-center display-lg text-bone">
           A proven process to attract the clients you want.
         </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-relaxed text-ink/75">
+        <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-relaxed text-bone/75">
           Our strategic process transforms your brand story into content that
           attracts attention, builds trust, and converts viewers into customers.
         </p>
@@ -50,12 +50,12 @@ export function ProcessSteps() {
                   {step.num}
                 </span>
               </div>
-              <div className="bg-mist px-3 py-3 text-center">
+              <div className="bg-bone px-3 py-3 text-center">
                 <p className="font-sans text-sm font-semibold text-ink">
                   {step.title}
                 </p>
               </div>
-              <p className="mt-5 text-center text-sm leading-relaxed text-ink/70">
+              <p className="mt-5 text-center text-sm leading-relaxed text-bone/70">
                 {step.body}
               </p>
             </div>

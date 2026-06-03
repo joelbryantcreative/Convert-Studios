@@ -51,12 +51,12 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="mx-auto max-w-xl border border-ink/15 bg-mist p-10 text-center">
-        <p className="font-display text-2xl text-ink">Thank you.</p>
-        <p className="mt-3 text-ink/70">
+      <div className="mx-auto max-w-xl border border-bone/15 bg-bone/5 p-10 text-center">
+        <p className="font-display text-2xl text-bone">Thank you.</p>
+        <p className="mt-3 text-bone/70">
           We&apos;ve received your message and will be in touch shortly. If
           it&apos;s urgent, email us directly at{" "}
-          <span className="text-oxblood">hello@convertstudios.au</span>.
+          <span className="text-bone">hello@convertstudios.au</span>.
         </p>
       </div>
     );
@@ -66,7 +66,7 @@ export function ContactForm() {
     <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-7">
       <input type="hidden" name="_subject" value="New enquiry from convertstudios.au" />
       <fieldset className="space-y-3">
-        <legend className="text-lg font-medium text-ink">Name</legend>
+        <legend className="text-lg font-medium text-bone">Name</legend>
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="First Name" name="firstName" required>
             <input id="firstName" name="firstName" required autoComplete="given-name" className="field-input" />
@@ -106,7 +106,7 @@ export function ContactForm() {
       </Field>
 
       {status === "error" && (
-        <p className="text-sm text-oxblood">
+        <p className="text-sm text-bone/80">
           Something went wrong sending your message. Please try again, or email
           us directly at hello@convertstudios.au.
         </p>
@@ -136,9 +136,9 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-2 block text-sm font-semibold text-ink">
+      <label htmlFor={name} className="mb-2 block text-sm font-semibold text-bone">
         {label}
-        {required && <span className="font-normal text-slate"> (required)</span>}
+        {required && <span className="font-normal text-bone/40"> (required)</span>}
       </label>
       {children}
     </div>
