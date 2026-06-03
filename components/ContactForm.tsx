@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 
-type Status = "idle" | "submitting" | "success";
+type Status = "idle" | "submitting" | "success" | "error";
+
+// Submissions are emailed via Formspree. Set this to your form endpoint:
+//   1. Create a free form at https://formspree.io pointed at hello@convertstudios.au
+//   2. Either set NEXT_PUBLIC_FORMSPREE_ENDPOINT in Vercel, or paste the full
+//      URL (https://formspree.io/f/XXXXXXXX) directly below.
+const FORMSPREE_ENDPOINT =
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
@@ -11,17 +18,35 @@ export function ContactForm() {
     e.preventDefault();
     setStatus("submitting");
 
-    const formData = new FormData(e.currentTarget);
-    const payload = Object.fromEntries(formData.entries());
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-    // --- Stub handler -------------------------------------------------------
-    // Replace with a Formspree POST (or API route) when ready, e.g.:
-    //   await fetch("https://formspree.io/f/XXXX", { method: "POST", body: formData })
-    console.log("Contact form submission:", payload);
-    await new Promise((r) => setTimeout(r, 700));
-    // -----------------------------------------------------------------------
+    // Until the endpoint is configured, log locally so the UX still works.
+    if (!FORMSPREE_ENDPOINT) {
+      console.log(
+        "Contact form (no endpoint configured):",
+        Object.fromEntries(formData.entries()),
+      );
+      await new Promise((r) => setTimeout(r, 600));
+      setStatus("success");
+      return;
+    }
 
-    setStatus("success");
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+      if (res.ok) {
+        form.reset();
+        setStatus("success");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") {
@@ -39,6 +64,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-7">
+      <input type="hidden" name="_subject" value="New enquiry from convertstudios.au" />
       <fieldset className="space-y-3">
         <legend className="text-lg font-medium text-ink">Name</legend>
         <div className="grid gap-4 sm:grid-cols-2">
@@ -78,6 +104,13 @@ export function ContactForm() {
       >
         <textarea id="goals" name="goals" required rows={5} className="field-input resize-y" />
       </Field>
+
+      {status === "error" && (
+        <p className="text-sm text-oxblood">
+          Something went wrong sending your message. Please try again, or email
+          us directly at hello@convertstudios.au.
+        </p>
+      )}
 
       <button
         type="submit"

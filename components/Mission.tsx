@@ -9,7 +9,7 @@ export function Mission() {
         <div className="flex items-center px-6 py-20 md:px-12 md:py-28 lg:px-20">
           <div className="max-w-lg">
             <h2 className="display-lg text-oxblood">
-              We believe in content that moves the needle.
+              We only make content that moves the needle.
             </h2>
             <div className="mt-7 space-y-5 text-lg leading-relaxed text-ink/75">
               <p>
