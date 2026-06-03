@@ -28,7 +28,7 @@ export function Services() {
 
   return (
     <section id="services" className="relative scroll-mt-20 overflow-hidden bg-noir">
-      <TextureBg overlay="bg-noir/65" />
+      <TextureBg overlay="bg-noir/55" />
 
       <div className="container-c relative z-10 grid gap-14 px-6 py-24 md:grid-cols-2 md:gap-20 md:px-10 md:py-32">
         <div>

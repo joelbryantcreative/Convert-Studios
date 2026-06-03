@@ -32,7 +32,7 @@ const steps = [
 export function ProcessSteps() {
   return (
     <section className="relative overflow-hidden bg-noir section-pad">
-      <TextureBg overlay="bg-noir/65" />
+      <TextureBg overlay="bg-noir/55" />
       <div className="container-c relative z-10">
         <h2 className="text-center display-lg text-sage">
           A proven process to attract the clients you want.

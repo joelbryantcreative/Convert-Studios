@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <section className="relative overflow-hidden bg-noir px-6 pb-24 pt-36 md:px-10 md:pt-44">
-      <TextureBg overlay="bg-noir/65" />
+      <TextureBg overlay="bg-noir/55" />
 
       <div className="container-c relative z-10">
         <div className="mb-14 text-center">
