@@ -25,7 +25,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Joel created content for our watch company and we couldn't be happier. The quality of the videos was excellent, and he captured our watches in a way that felt professional, premium, and true to our brand. Easy to work with, great communication, and everything delivered promptly. Highly recommend.",
+      "The team created content for our watch company and we couldn't be happier! The quality of the videos was excellent, and they captured our watches in a way that felt professional, premium, and true to our brand. Easy to work with, great communication, and everything was delivered promptly. Highly recommend.",
     name: "Rogue Watches",
     role: "Premium watch brand",
     image: "/testimonials/rogue-watches.jpg",
