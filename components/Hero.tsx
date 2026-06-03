@@ -30,7 +30,7 @@ export function Hero() {
           Trusted by industry leaders across Australia
         </p>
         <h1 className="mx-auto max-w-5xl animate-fade-up display-xl text-white [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
-          Content that converts attention into customers.
+          Content That Converts
         </h1>
         <p
           className="mx-auto mt-7 max-w-2xl animate-fade-up text-lg leading-relaxed text-white/85 [text-shadow:0_1px_12px_rgba(0,0,0,0.4)] md:text-xl"
