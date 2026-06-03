@@ -31,13 +31,13 @@ const steps = [
 
 export function ProcessSteps() {
   return (
-    <section className="relative overflow-hidden bg-noir section-pad">
-      <TextureBg overlay="bg-noir/55" />
+    <section className="relative overflow-hidden bg-bone section-pad">
+      <TextureBg overlay="bg-bone/55" />
       <div className="container-c relative z-10">
-        <h2 className="text-center display-lg text-sage">
+        <h2 className="text-center display-lg text-oxblood">
           A proven process to attract the clients you want.
         </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-relaxed text-white/70">
+        <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-relaxed text-ink/75">
           Our strategic process transforms your brand story into content that
           attracts attention, builds trust, and converts viewers into customers.
         </p>
@@ -45,17 +45,17 @@ export function ProcessSteps() {
         <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step) => (
             <div key={step.num}>
-              <div className="flex aspect-square items-center justify-center bg-sage">
-                <span className="font-serif text-6xl italic text-white">
+              <div className="flex aspect-square items-center justify-center bg-oxblood">
+                <span className="font-serif text-6xl italic text-bone">
                   {step.num}
                 </span>
               </div>
-              <div className="bg-white px-3 py-3 text-center">
+              <div className="bg-mist px-3 py-3 text-center">
                 <p className="font-sans text-sm font-semibold text-ink">
                   {step.title}
                 </p>
               </div>
-              <p className="mt-5 text-center text-sm leading-relaxed text-white/65">
+              <p className="mt-5 text-center text-sm leading-relaxed text-ink/70">
                 {step.body}
               </p>
             </div>

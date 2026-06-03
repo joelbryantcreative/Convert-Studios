@@ -27,13 +27,13 @@ export function Services() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="services" className="relative scroll-mt-20 overflow-hidden bg-noir">
-      <TextureBg overlay="bg-noir/55" />
+    <section id="services" className="relative scroll-mt-20 overflow-hidden bg-bone">
+      <TextureBg overlay="bg-bone/55" />
 
       <div className="container-c relative z-10 grid gap-14 px-6 py-24 md:grid-cols-2 md:gap-20 md:px-10 md:py-32">
         <div>
-          <h2 className="display-lg text-white">We handle everything.</h2>
-          <p className="mt-6 max-w-md text-lg leading-relaxed text-white/70">
+          <h2 className="display-lg text-ink">We handle everything.</h2>
+          <p className="mt-6 max-w-md text-lg leading-relaxed text-ink/70">
             From strategy and storytelling to filming and paid distribution, we
             run the full system so you stay focused on running your business.
           </p>
@@ -46,17 +46,17 @@ export function Services() {
           {services.map((service, i) => {
             const isOpen = open === i;
             return (
-              <div key={service.title} className="border-t border-white/20 last:border-b">
+              <div key={service.title} className="border-t border-ink/15 last:border-b">
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
                   aria-expanded={isOpen}
                   className="flex w-full items-center justify-between gap-4 py-6 text-left"
                 >
-                  <span className="font-display text-xl text-white md:text-2xl">
+                  <span className="font-display text-xl text-ink md:text-2xl">
                     {service.title}
                   </span>
                   <span
-                    className={`flex h-7 w-7 shrink-0 items-center justify-center text-2xl font-light text-sage transition-transform duration-300 ${
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center text-2xl font-light text-oxblood transition-transform duration-300 ${
                       isOpen ? "rotate-45" : ""
                     }`}
                     aria-hidden="true"
@@ -70,7 +70,7 @@ export function Services() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <p className="max-w-md leading-relaxed text-white/65">
+                    <p className="max-w-md leading-relaxed text-ink/70">
                       {service.body}
                     </p>
                   </div>

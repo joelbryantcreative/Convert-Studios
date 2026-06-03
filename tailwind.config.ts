@@ -8,13 +8,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Dark cinematic theme
-        noir: "#0A0A0A",
-        night: "#121212",
-        ink: "#1A1A1A",
-        sage: "#9FB9A1",
-        "sage-deep": "#8AA88D",
-        bone: "#F4F1EA",
+        // Light letterpress palette
+        bone: "#F5F1E8", // primary background
+        mist: "#EAE4D5", // subtle backgrounds, hover states
+        ink: "#1A1A1A", // primary text, headlines
+        slate: "#6B6660", // secondary text, dividers, UI chrome
+        oxblood: "#6B2737", // primary accent, CTAs, brand moments
+        dusk: "#4F5D6B", // secondary accent, used sparingly
       },
       fontFamily: {
         display: ["var(--font-archivo-expanded)", "system-ui", "sans-serif"],

@@ -3,15 +3,15 @@ import Link from "next/link";
 
 export function Mission() {
   return (
-    <section id="mission" className="scroll-mt-20 bg-noir">
+    <section id="mission" className="scroll-mt-20 bg-mist">
       <div className="grid items-stretch md:grid-cols-2">
         {/* Copy */}
         <div className="flex items-center px-6 py-20 md:px-12 md:py-28 lg:px-20">
           <div className="max-w-lg">
-            <h2 className="display-lg text-sage">
+            <h2 className="display-lg text-oxblood">
               We believe in content that moves the needle.
             </h2>
-            <div className="mt-7 space-y-5 text-lg leading-relaxed text-white/75">
+            <div className="mt-7 space-y-5 text-lg leading-relaxed text-ink/75">
               <p>
                 Most content is made to fill a feed. We make content that moves
                 your business forward, measured in leads, in revenue, and in how

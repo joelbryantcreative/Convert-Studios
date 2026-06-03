@@ -1,7 +1,7 @@
-// Subtle on-brand blurred backdrop (noir base with soft sage/teal glows).
+// Subtle on-brand blurred backdrop (bone base with soft mist/dusk/oxblood blooms).
 // Drop inside a `relative` section; keep section content at `relative z-10`.
 export function TextureBg({
-  overlay = "bg-noir/45",
+  overlay = "bg-bone/40",
 }: {
   overlay?: string;
 }) {

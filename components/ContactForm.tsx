@@ -26,18 +26,12 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="mx-auto max-w-xl border border-white/15 bg-white/5 p-10 text-center">
-        <p className="font-display text-2xl text-white">Thank you.</p>
-        <p className="mt-3 text-white/70">
+      <div className="mx-auto max-w-xl border border-ink/15 bg-mist p-10 text-center">
+        <p className="font-display text-2xl text-ink">Thank you.</p>
+        <p className="mt-3 text-ink/70">
           We&apos;ve received your message and will be in touch shortly. If
           it&apos;s urgent, email us directly at{" "}
-          <a
-            href="mailto:hello@convert.studios"
-            className="link-underline text-sage"
-          >
-            hello@convert.studios
-          </a>
-          .
+          <span className="text-oxblood">hello@convertstudios.au</span>.
         </p>
       </div>
     );
@@ -46,7 +40,7 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="mx-auto max-w-2xl space-y-7">
       <fieldset className="space-y-3">
-        <legend className="text-lg font-medium text-white">Name</legend>
+        <legend className="text-lg font-medium text-ink">Name</legend>
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="First Name" name="firstName" required>
             <input id="firstName" name="firstName" required autoComplete="given-name" className="field-input" />
@@ -109,9 +103,9 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={name} className="mb-2 block text-sm font-semibold text-white">
+      <label htmlFor={name} className="mb-2 block text-sm font-semibold text-ink">
         {label}
-        {required && <span className="font-normal text-white/40"> (required)</span>}
+        {required && <span className="font-normal text-slate"> (required)</span>}
       </label>
       {children}
     </div>
