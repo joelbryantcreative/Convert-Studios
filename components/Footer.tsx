@@ -29,9 +29,14 @@ export function Footer() {
               href="https://instagram.com/convert.studios"
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline text-white/70 hover:text-white"
+              aria-label="Convert Studios on Instagram"
+              className="mt-1 inline-flex text-white/70 transition hover:text-white md:justify-end"
             >
-              @convert.studios
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" strokeWidth="1.7" />
+                <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.7" />
+                <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+              </svg>
             </a>
           </div>
         </div>
