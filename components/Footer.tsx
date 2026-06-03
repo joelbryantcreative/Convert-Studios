@@ -24,12 +24,7 @@ export function Footer() {
             >
               Privacy Policy
             </Link>
-            <a
-              href="mailto:hello@convert.studios"
-              className="link-underline text-white/70 hover:text-white"
-            >
-              hello@convert.studios
-            </a>
+            <span className="text-white/70">hello@convertstudios.au</span>
             <a
               href="https://instagram.com/convert.studios"
               target="_blank"
