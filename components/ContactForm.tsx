@@ -72,10 +72,8 @@ export function ContactForm() {
           </option>
           <option value="instagram">Instagram</option>
           <option value="facebook">Facebook</option>
-          <option value="google">Google search</option>
-          <option value="referral">Referral / word of mouth</option>
-          <option value="lineage-films">Lineage Films</option>
-          <option value="other">Other</option>
+          <option value="google">Google</option>
+          <option value="referral">Referral</option>
         </select>
       </Field>
 
