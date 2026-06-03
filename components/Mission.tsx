@@ -34,8 +34,8 @@ export function Mission() {
         {/* Cinematic image */}
         <div className="relative min-h-[360px] md:min-h-full">
           <Image
-            src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1600&auto=format&fit=crop"
-            alt="A filmmaker framing a shot on a cinema camera"
+            src="/studio.webp"
+            alt="The Convert Studios film set, lit and ready"
             fill
             loading="lazy"
             sizes="(max-width: 768px) 100vw, 50vw"
