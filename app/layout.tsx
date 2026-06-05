@@ -27,7 +27,7 @@ const fraunces = Fraunces({
   display: "swap",
 });
 
-const siteUrl = "https://convert.studios";
+const siteUrl = "https://convertstudios.au";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
