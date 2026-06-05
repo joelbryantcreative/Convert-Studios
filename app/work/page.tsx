@@ -16,13 +16,13 @@ const films = [
   { client: "Craved This", id: "1181461629" },
 ];
 
-// Top-five short-form ads (vertical). Posters are placeholders until frames are added.
+// Top-five short-form ads (vertical), with their real poster frames.
 const reels = [
-  { poster: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600&auto=format&fit=crop", duration: "0:47", id: "1198616005" },
-  { poster: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=600&auto=format&fit=crop", duration: "0:51", id: "1198616064" },
-  { poster: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600&auto=format&fit=crop", duration: "0:41", id: "1198616119" },
-  { poster: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600&auto=format&fit=crop", duration: "0:42", id: "1198616150" },
-  { poster: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=600&auto=format&fit=crop", duration: "0:55", id: "1198616184" },
+  { poster: "/reels/ad-1.webp", duration: "0:47", id: "1198616005" },
+  { poster: "/reels/ad-2.webp", duration: "0:51", id: "1198616064" },
+  { poster: "/reels/ad-3.webp", duration: "0:41", id: "1198616119" },
+  { poster: "/reels/ad-4.webp", duration: "0:42", id: "1198616150" },
+  { poster: "/reels/ad-5.webp", duration: "0:55", id: "1198616184" },
 ];
 
 export default function WorkPage() {
