@@ -42,25 +42,40 @@ export function ProcessSteps() {
           attracts attention, builds trust, and converts viewers into customers.
         </p>
 
-        <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
-          {steps.map((step) => (
-            <div key={step.num}>
-              <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-aqua to-deepblue">
-                <span className="font-serif text-6xl italic text-bone">
+        <ol className="mt-16 grid gap-y-10 md:grid-cols-5 md:gap-y-0">
+          {steps.map((step, i) => {
+            const last = i === steps.length - 1;
+            return (
+              <li
+                key={step.num}
+                className="relative flex items-start gap-5 md:flex-col md:items-center md:gap-4 md:px-3 md:text-center"
+              >
+                {/* connector: vertical on mobile, horizontal on desktop */}
+                {!last && (
+                  <span
+                    aria-hidden
+                    className="absolute left-7 top-7 h-[calc(100%+2.5rem)] w-px bg-bone/15 md:left-[calc(50%+28px)] md:h-px md:w-[calc(100%-56px)]"
+                  />
+                )}
+
+                {/* node */}
+                <span className="relative z-10 flex h-14 w-14 shrink-0 items-center justify-center bg-ink font-serif text-3xl italic text-aqua md:bg-transparent md:text-4xl">
                   {step.num}
                 </span>
-              </div>
-              <div className="bg-bone px-3 py-3 text-center">
-                <p className="font-sans text-sm font-semibold text-ink">
-                  {step.title}
-                </p>
-              </div>
-              <p className="mt-5 text-center text-sm leading-relaxed text-bone/70">
-                {step.body}
-              </p>
-            </div>
-          ))}
-        </div>
+
+                {/* content */}
+                <div className="md:mt-1">
+                  <h3 className="font-display text-base text-bone">
+                    {step.title}
+                  </h3>
+                  <p className="mt-2 max-w-xs text-sm leading-relaxed text-bone/65">
+                    {step.body}
+                  </p>
+                </div>
+              </li>
+            );
+          })}
+        </ol>
 
         <div className="mt-16 flex justify-center">
           <BookCallButton>Work With Us!</BookCallButton>
