@@ -21,13 +21,9 @@ export default function ContactPage() {
             the form below and we&apos;ll be in touch shortly.
           </p>
           <div className="mt-7 flex flex-col items-center justify-center gap-3 text-bone/85 sm:flex-row sm:gap-7">
-            <a href="mailto:hello@convertstudios.au" className="link-underline">
-              hello@convertstudios.au
-            </a>
+            <span>hello@convertstudios.au</span>
             <span className="hidden text-bone/30 sm:inline">•</span>
-            <a href="tel:+61497962046" className="link-underline">
-              +61 497 962 046
-            </a>
+            <span>+61 497 962 046</span>
           </div>
         </div>
 
