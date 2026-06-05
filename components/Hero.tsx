@@ -26,7 +26,7 @@ export function Hero() {
       </div>
 
       <div className="container-c relative z-10 px-6 py-32 md:px-10">
-        <p className="mb-7 animate-fade-up text-sm font-normal uppercase tracking-normal text-bone/70">
+        <p className="mb-7 animate-fade-up whitespace-nowrap text-[11px] font-normal uppercase tracking-normal text-bone/70 sm:text-sm">
           Trusted by industry leaders across Australia
         </p>
         <h1 className="mx-auto max-w-5xl animate-fade-up display-xl text-bone [text-shadow:0_2px_24px_rgba(0,0,0,0.45)]">
