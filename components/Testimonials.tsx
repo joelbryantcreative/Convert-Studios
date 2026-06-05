@@ -38,7 +38,7 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Our category isn't the easiest to advertise, but Convert Studios made content that's bold, beautiful, and unmistakably us. It stopped the scroll and moved product. They understood the brand instantly, and the sales backed it up.",
+      "Our concept is a new one and a little hard to convey, but the storytelling was immaculate and the visuals captured exactly what we needed to communicate. Convert Studios understood the brand instantly, and the sales backed it up.",
     name: "Craved This",
     role: "E-commerce brand",
     image: "/testimonials/craved.webp",
