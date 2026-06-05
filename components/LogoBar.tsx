@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Fragment } from "react";
 
 // Faces for the social-proof badge.
 const trustedFaces = [
@@ -47,26 +46,24 @@ const clients: Client[] = [
 export function LogoBar() {
   return (
     <section className="bg-ink py-12">
-      {/* Centred marquee band with edge fade */}
-      <div className="container-c px-6 md:px-10">
-        <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+      <div className="container-c flex items-center gap-5 px-6 md:gap-10 md:px-10">
+        {/* Fixed social-proof badge */}
+        <GrowingBrands />
+
+        {/* Scrolling logos only */}
+        <div className="group relative min-w-0 flex-1 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
           <div className="flex w-max animate-marquee items-center gap-12 group-hover:[animation-play-state:paused]">
-            {[0, 1].map((copy) => (
-              <Fragment key={copy}>
-                <GrowingBrands hidden={copy === 1} />
-                {clients.map((client) => (
-                  <Image
-                    key={`${copy}-${client.file}`}
-                    src={`/logos/${client.file}`}
-                    alt={client.name}
-                    width={client.w}
-                    height={client.h}
-                    sizes="180px"
-                    aria-hidden={copy === 1}
-                    className="h-8 w-auto shrink-0 object-contain opacity-80 transition-opacity duration-300 hover:opacity-100 md:h-9"
-                  />
-                ))}
-              </Fragment>
+            {[...clients, ...clients].map((client, i) => (
+              <Image
+                key={`${client.file}-${i}`}
+                src={`/logos/${client.file}`}
+                alt={client.name}
+                width={client.w}
+                height={client.h}
+                sizes="180px"
+                aria-hidden={i >= clients.length}
+                className="h-8 w-auto shrink-0 object-contain opacity-80 transition-opacity duration-300 hover:opacity-100 md:h-9"
+              />
             ))}
           </div>
         </div>
@@ -75,9 +72,9 @@ export function LogoBar() {
   );
 }
 
-function GrowingBrands({ hidden }: { hidden: boolean }) {
+function GrowingBrands() {
   return (
-    <div className="flex shrink-0 items-center gap-3 pr-2" aria-hidden={hidden}>
+    <div className="flex shrink-0 items-center gap-3">
       <div className="flex -space-x-3">
         {trustedFaces.map((src) => (
           <span
