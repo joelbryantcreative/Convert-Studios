@@ -9,7 +9,7 @@ type Status = "idle" | "submitting" | "success" | "error";
 //   2. Either set NEXT_PUBLIC_FORMSPREE_ENDPOINT in Vercel, or paste the full
 //      URL (https://formspree.io/f/XXXXXXXX) directly below.
 const FORMSPREE_ENDPOINT =
-  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "";
+  process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT ?? "https://formspree.io/f/xqeoagwd";
 
 export function ContactForm() {
   const [status, setStatus] = useState<Status>("idle");
