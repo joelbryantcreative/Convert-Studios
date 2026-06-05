@@ -42,24 +42,21 @@ const testimonials: Testimonial[] = [
       "Our category isn't the easiest to advertise, but Convert Studios made content that's bold, beautiful, and unmistakably us. It stopped the scroll and moved product. They understood the brand instantly, and the sales backed it up.",
     name: "Craved This",
     role: "E-commerce chocolate brand",
-    initials: "C",
-    color: "#6B2737",
+    image: "/testimonials/craved.webp",
   },
   {
     quote:
       "Working with Convert Studios was effortless. They made me feel completely comfortable on camera and shaped the story so it genuinely represented the brand and connected with the audience. Some of the best content I've been a part of.",
     name: "Alex",
     role: "Brand ambassador, Huckberry",
-    initials: "A",
-    color: "#4F5D6B",
+    image: "/testimonials/alex-libby.webp",
   },
   {
     quote:
       "We're absolutely thrilled with all your videos! The editing and storytelling are truly outstanding, and the entire Tucann family is so happy to have had the opportunity to work with you. Your creativity and dedication shine through, and we sincerely appreciate your hard work.",
-    name: "Danielle",
-    role: "Tucann Team",
-    initials: "D",
-    color: "#2F6E5A",
+    name: "Tucann Team",
+    role: "",
+    image: "/testimonials/tucann.webp",
   },
 ];
 
@@ -135,7 +132,9 @@ function Card({ quote, name, role, image, initials, color }: Testimonial) {
         )}
       </div>
       <figcaption className="mt-6 font-display text-lg text-bone">{name}</figcaption>
-      <p className="mt-1 text-xs uppercase tracking-widest2 text-bone/55">{role}</p>
+      {role && (
+        <p className="mt-1 text-xs uppercase tracking-widest2 text-bone/55">{role}</p>
+      )}
       <blockquote className="mt-5 max-w-xs leading-relaxed text-bone/75">
         &ldquo;{quote}&rdquo;
       </blockquote>
