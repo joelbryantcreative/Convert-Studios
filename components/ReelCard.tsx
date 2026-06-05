@@ -4,8 +4,8 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 // Short-form ad card. Click swaps the poster for the Vimeo player in place
-// (no modal, no controls) so the vertical clip plays right where it sits.
-// When the clip ends, the card returns to its thumbnail.
+// (no modal, no controls UI). Tapping the playing video toggles pause/play via
+// the Vimeo API, and the card returns to its thumbnail when the clip ends.
 export function ReelCard({
   poster,
   duration,
@@ -16,7 +16,15 @@ export function ReelCard({
   id: string;
 }) {
   const [playing, setPlaying] = useState(false);
+  const [paused, setPaused] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  function post(method: string, value?: string) {
+    iframeRef.current?.contentWindow?.postMessage(
+      JSON.stringify(value !== undefined ? { method, value } : { method }),
+      "*",
+    );
+  }
 
   useEffect(() => {
     if (!playing) return;
@@ -33,11 +41,11 @@ export function ReelCard({
       }
       if (!data) return;
       if (data.event === "ready") {
-        // Subscribe to the player's "ended" event.
-        iframe?.contentWindow?.postMessage(
-          JSON.stringify({ method: "addEventListener", value: "ended" }),
-          "*",
-        );
+        ["play", "pause", "ended"].forEach((ev) => post("addEventListener", ev));
+      } else if (data.event === "play") {
+        setPaused(false);
+      } else if (data.event === "pause") {
+        setPaused(true);
       } else if (data.event === "ended") {
         setPlaying(false);
       }
@@ -47,19 +55,45 @@ export function ReelCard({
     return () => window.removeEventListener("message", onMessage);
   }, [playing]);
 
+  function togglePlay() {
+    post(paused ? "play" : "pause");
+    setPaused((p) => !p);
+  }
+
   return (
     <div className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-ink ring-1 ring-bone/10 md:w-auto">
       {playing ? (
-        <iframe
-          ref={iframeRef}
-          src={`https://player.vimeo.com/video/${id}?autoplay=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
-          title="Convert Studios short-form ad"
-          allow="autoplay; fullscreen; picture-in-picture"
-          className="absolute inset-0 h-full w-full border-0"
-        />
+        <>
+          <iframe
+            ref={iframeRef}
+            src={`https://player.vimeo.com/video/${id}?autoplay=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
+            title="Convert Studios short-form ad"
+            allow="autoplay; fullscreen; picture-in-picture"
+            className="absolute inset-0 h-full w-full border-0"
+          />
+          {/* Transparent layer that toggles pause/play (controls stay hidden) */}
+          <button
+            onClick={togglePlay}
+            aria-label={paused ? "Play video" : "Pause video"}
+            className="group/play absolute inset-0 h-full w-full"
+          >
+            <span
+              className={`absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ink/55 transition ${
+                paused ? "opacity-100" : "opacity-0"
+              }`}
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </button>
+        </>
       ) : (
         <button
-          onClick={() => setPlaying(true)}
+          onClick={() => {
+            setPaused(false);
+            setPlaying(true);
+          }}
           aria-label="Play short-form video"
           className="absolute inset-0 h-full w-full text-left"
         >
