@@ -1,4 +1,12 @@
 import Image from "next/image";
+import { Fragment } from "react";
+
+// Faces for the social-proof badge.
+const trustedFaces = [
+  "/testimonials/ben-handler.jpg",
+  "/testimonials/nathan-tanner.jpg",
+  "/testimonials/rogue-watches.jpg",
+];
 
 // Client logos. Files live in /public/logos (processed for the dark bar:
 // white backgrounds removed, pure-black marks rendered white so they read).
@@ -43,21 +51,55 @@ export function LogoBar() {
       <div className="container-c px-6 md:px-10">
         <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
           <div className="flex w-max animate-marquee items-center gap-12 group-hover:[animation-play-state:paused]">
-            {[...clients, ...clients].map((client, i) => (
-            <Image
-              key={`${client.file}-${i}`}
-              src={`/logos/${client.file}`}
-              alt={client.name}
-              width={client.w}
-              height={client.h}
-              sizes="180px"
-              aria-hidden={i >= clients.length}
-              className="h-8 w-auto shrink-0 object-contain opacity-80 transition-opacity duration-300 hover:opacity-100 md:h-9"
-            />
-          ))}
+            {[0, 1].map((copy) => (
+              <Fragment key={copy}>
+                <GrowingBrands hidden={copy === 1} />
+                {clients.map((client) => (
+                  <Image
+                    key={`${copy}-${client.file}`}
+                    src={`/logos/${client.file}`}
+                    alt={client.name}
+                    width={client.w}
+                    height={client.h}
+                    sizes="180px"
+                    aria-hidden={copy === 1}
+                    className="h-8 w-auto shrink-0 object-contain opacity-80 transition-opacity duration-300 hover:opacity-100 md:h-9"
+                  />
+                ))}
+              </Fragment>
+            ))}
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function GrowingBrands({ hidden }: { hidden: boolean }) {
+  return (
+    <div className="flex shrink-0 items-center gap-3 pr-2" aria-hidden={hidden}>
+      <div className="flex -space-x-3">
+        {trustedFaces.map((src) => (
+          <span
+            key={src}
+            className="relative h-9 w-9 overflow-hidden rounded-full ring-2 ring-ink"
+          >
+            <Image src={src} alt="" fill sizes="36px" className="object-cover" />
+          </span>
+        ))}
+      </div>
+      <div className="text-left">
+        <div className="flex gap-0.5 text-bone">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5L12 17.8 6.2 20.9l1.1-6.5L2.6 8.8l6.5-.9z" />
+            </svg>
+          ))}
+        </div>
+        <p className="mt-1 whitespace-nowrap text-sm font-semibold text-bone">
+          Growing Brands
+        </p>
+      </div>
+    </div>
   );
 }
