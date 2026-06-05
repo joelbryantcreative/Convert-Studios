@@ -18,7 +18,7 @@ export function Mission() {
                 often you stop having to chase.
               </p>
               <p>
-                We come from documentary filmmaking, which means we treat every
+                We come from a filmmaking background, which means we treat every
                 piece of work as a story worth watching. That&apos;s the
                 standard. The business outcomes follow.
               </p>
