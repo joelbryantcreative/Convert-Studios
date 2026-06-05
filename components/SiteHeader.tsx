@@ -127,7 +127,7 @@ function SocialIcons() {
         </svg>
       </a>
       <a
-        href="https://facebook.com/convert.studios"
+        href="https://www.facebook.com/convertstudios/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Convert Studios on Facebook"
