@@ -3,7 +3,6 @@ import { Archivo, Fraunces, Inter } from "next/font/google";
 import "./globals.css";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Footer } from "@/components/Footer";
-import { BookingProvider } from "@/components/Booking";
 import { VideoProvider } from "@/components/VideoProvider";
 
 const archivoExpanded = Archivo({
@@ -76,13 +75,11 @@ export default function RootLayout({
       className={`${archivoExpanded.variable} ${inter.variable} ${fraunces.variable}`}
     >
       <body className="bg-ink font-sans text-bone antialiased">
-        <BookingProvider>
-          <VideoProvider>
-            <SiteHeader />
-            <main>{children}</main>
-            <Footer />
-          </VideoProvider>
-        </BookingProvider>
+        <VideoProvider>
+          <SiteHeader />
+          <main>{children}</main>
+          <Footer />
+        </VideoProvider>
       </body>
     </html>
   );
