@@ -54,10 +54,12 @@ export default function WorkPage() {
             and why clients choose you.
           </h2>
         </div>
-        <div className="grid gap-1 sm:grid-cols-2">
-          {films.map((film) => (
-            <FilmCard key={film.id} {...film} />
-          ))}
+        <div className="container-c px-6 md:px-10">
+          <div className="mx-auto grid max-w-4xl gap-1 sm:grid-cols-2">
+            {films.map((film) => (
+              <FilmCard key={film.id} {...film} />
+            ))}
+          </div>
         </div>
       </section>
 
