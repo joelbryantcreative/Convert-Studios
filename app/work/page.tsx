@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ProcessSteps } from "@/components/ProcessSteps";
-import { VideoTrigger } from "@/components/VideoProvider";
+import { ReelCard } from "@/components/ReelCard";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -40,31 +39,7 @@ export default function WorkPage() {
 
           <div className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-4 [-ms-overflow-style:none] [scrollbar-width:none] md:grid md:grid-cols-5 md:overflow-visible [&::-webkit-scrollbar]:hidden">
             {reels.map((reel, i) => (
-              <VideoTrigger
-                key={i}
-                videoId={reel.id}
-                orientation="portrait"
-                label="Play short-form video"
-                className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-ink text-left ring-1 ring-bone/10 md:w-auto"
-              >
-                <Image
-                  src={reel.poster}
-                  alt="Short-form video still"
-                  fill
-                  loading="lazy"
-                  sizes="(max-width: 768px) 70vw, 18vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-                <PlayBadge />
-                <div className="absolute inset-x-3 bottom-3 flex items-center justify-between text-[11px] text-white/80">
-                  <span>0:00 / {reel.duration}</span>
-                  <div className="flex items-center gap-2 opacity-80">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 9v6h4l5 5V4L8 9H4z" /></svg>
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" /></svg>
-                  </div>
-                </div>
-              </VideoTrigger>
+              <ReelCard key={i} {...reel} />
             ))}
           </div>
         </div>
@@ -100,15 +75,5 @@ export default function WorkPage() {
 
       <ProcessSteps />
     </>
-  );
-}
-
-function PlayBadge() {
-  return (
-    <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition group-hover:bg-white/30">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
-        <path d="M8 5v14l11-7z" />
-      </svg>
-    </span>
   );
 }
