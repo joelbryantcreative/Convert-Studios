@@ -40,21 +40,21 @@ const testimonials: Testimonial[] = [
     quote:
       "Our category isn't the easiest to advertise, but Convert Studios made content that's bold, beautiful, and unmistakably us. It stopped the scroll and moved product. They understood the brand instantly, and the sales backed it up.",
     name: "Craved This",
-    role: "E-commerce chocolate brand",
+    role: "E-commerce brand",
     image: "/testimonials/craved.webp",
   },
   {
     quote:
       "Working with Convert Studios was effortless. They made me feel completely comfortable on camera and shaped the story so it genuinely represented the brand and connected with the audience. Some of the best content I've been a part of.",
-    name: "Alex",
+    name: "Alex Libby",
     role: "Brand ambassador, Huckberry",
     image: "/testimonials/alex-libby.webp",
   },
   {
     quote:
       "We're absolutely thrilled with all your videos! The editing and storytelling are truly outstanding, and the entire Tucann family is so happy to have had the opportunity to work with you. Your creativity and dedication shine through, and we sincerely appreciate your hard work.",
-    name: "Tucann Team",
-    role: "",
+    name: "Tucann",
+    role: "Marketing Team",
     image: "/testimonials/tucann.webp",
   },
 ];
