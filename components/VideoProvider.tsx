@@ -9,11 +9,17 @@ import {
 } from "react";
 
 // ---------------------------------------------------------------------------
-// Shared Vimeo lightbox. Any card can call open(videoId) to play a clip in a
-// centered 16:9 modal. Keeps a single iframe mounted at a time.
+// Shared Vimeo lightbox. Any card can call open(videoId, orientation) to play a
+// clip in a centered modal — landscape (16:9) or portrait (9:16) for reels.
 // ---------------------------------------------------------------------------
 
-type VideoContextValue = { open: (videoId: string) => void; close: () => void };
+type Orientation = "landscape" | "portrait";
+type Playing = { id: string; orientation: Orientation };
+
+type VideoContextValue = {
+  open: (videoId: string, orientation?: Orientation) => void;
+  close: () => void;
+};
 
 const VideoContext = createContext<VideoContextValue | null>(null);
 
@@ -24,16 +30,20 @@ export function useVideo() {
 }
 
 export function VideoProvider({ children }: { children: React.ReactNode }) {
-  const [videoId, setVideoId] = useState<string | null>(null);
+  const [playing, setPlaying] = useState<Playing | null>(null);
 
-  const open = useCallback((id: string) => setVideoId(id), []);
-  const close = useCallback(() => setVideoId(null), []);
+  const open = useCallback(
+    (id: string, orientation: Orientation = "landscape") =>
+      setPlaying({ id, orientation }),
+    [],
+  );
+  const close = useCallback(() => setPlaying(null), []);
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
       if (e.key === "Escape") close();
     }
-    if (videoId) {
+    if (playing) {
       document.addEventListener("keydown", onKey);
       document.body.style.overflow = "hidden";
     }
@@ -41,12 +51,14 @@ export function VideoProvider({ children }: { children: React.ReactNode }) {
       document.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [videoId, close]);
+  }, [playing, close]);
+
+  const isPortrait = playing?.orientation === "portrait";
 
   return (
     <VideoContext.Provider value={{ open, close }}>
       {children}
-      {videoId && (
+      {playing && (
         <div
           role="dialog"
           aria-modal="true"
@@ -58,7 +70,13 @@ export function VideoProvider({ children }: { children: React.ReactNode }) {
             onClick={close}
             className="absolute inset-0 bg-ink/85 backdrop-blur-sm"
           />
-          <div className="relative z-10 w-full max-w-5xl animate-fade-up">
+          <div
+            className={`relative z-10 animate-fade-up ${
+              isPortrait
+                ? "aspect-[9/16] h-[82vh] max-h-[82vh] max-w-[92vw]"
+                : "aspect-video w-full max-w-5xl"
+            }`}
+          >
             <button
               onClick={close}
               aria-label="Close"
@@ -68,9 +86,9 @@ export function VideoProvider({ children }: { children: React.ReactNode }) {
                 <path d="M2 2l12 12M14 2L2 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </button>
-            <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black ring-1 ring-white/10">
+            <div className="relative h-full w-full overflow-hidden rounded-xl bg-black ring-1 ring-white/10">
               <iframe
-                src={`https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`}
+                src={`https://player.vimeo.com/video/${playing.id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`}
                 title="Convert Studios video"
                 allow="autoplay; fullscreen; picture-in-picture"
                 className="absolute inset-0 h-full w-full border-0"
@@ -85,18 +103,24 @@ export function VideoProvider({ children }: { children: React.ReactNode }) {
 
 export function VideoTrigger({
   videoId,
+  orientation = "landscape",
   className,
   label = "Play video",
   children,
 }: {
   videoId: string;
+  orientation?: Orientation;
   className?: string;
   label?: string;
   children: React.ReactNode;
 }) {
   const { open } = useVideo();
   return (
-    <button onClick={() => open(videoId)} aria-label={label} className={className}>
+    <button
+      onClick={() => open(videoId, orientation)}
+      aria-label={label}
+      className={className}
+    >
       {children}
     </button>
   );
