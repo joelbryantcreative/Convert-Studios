@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { TextureBg } from "@/components/TextureBg";
 
 type Testimonial = {
   quote: string;
@@ -81,9 +80,8 @@ export function Testimonials() {
   const next = () => setStart((s) => Math.min(maxStart, s + 1));
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-ink section-pad">
-      <TextureBg />
-      <div className="container-c relative z-10">
+    <section id="testimonials" className="bg-ink section-pad">
+      <div className="container-c">
         <h2 className="text-center font-display text-3xl uppercase tracking-tight text-bone md:text-5xl">
           Testimonials
         </h2>
