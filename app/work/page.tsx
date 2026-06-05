@@ -46,18 +46,18 @@ export default function WorkPage() {
         </div>
       </section>
 
-      {/* Brand films: real Vimeo embeds, two per row */}
+      {/* Brand films: flush 2-up grid, no captions */}
       <section className="bg-ink pb-12">
         <div className="container-c px-6 md:px-10">
           <h2 className="mx-auto max-w-3xl pb-12 text-center font-display text-2xl leading-snug text-bone md:text-4xl">
             Powerful brand stories crafted to showcase who you are, what you do,
             and why clients choose you.
           </h2>
-          <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
-            {films.map((film) => (
-              <FilmCard key={film.id} {...film} />
-            ))}
-          </div>
+        </div>
+        <div className="grid gap-1 sm:grid-cols-2">
+          {films.map((film) => (
+            <FilmCard key={film.id} {...film} />
+          ))}
         </div>
       </section>
 
