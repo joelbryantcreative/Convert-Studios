@@ -33,16 +33,16 @@ export function ProcessSteps() {
   return (
     <section className="relative overflow-hidden bg-ink section-pad">
       <TextureBg overlay="bg-ink/55" />
-      <div className="container-c relative z-10">
-        <h2 className="text-center display-lg text-bone">
+      <div className="relative z-10">
+        <h2 className="text-center font-display text-3xl leading-[1.05] text-bone md:text-4xl">
           A proven process to attract the clients you want.
         </h2>
-        <p className="mx-auto mt-6 max-w-3xl text-center text-lg leading-relaxed text-bone/75">
+        <p className="mx-auto mt-6 max-w-3xl px-6 text-center text-lg leading-relaxed text-bone/75">
           Our strategic process transforms your brand story into content that
           attracts attention, builds trust, and converts viewers into customers.
         </p>
 
-        <ol className="mt-16 grid gap-y-10 md:grid-cols-5 md:gap-y-0">
+        <ol className="container-c mt-16 grid gap-y-10 md:grid-cols-5 md:gap-y-0">
           {steps.map((step, i) => {
             const last = i === steps.length - 1;
             return (
