@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Short-form ad card. Click swaps the poster for the Vimeo player in place
-// (no modal) so the vertical clip plays right where it sits.
+// (no modal, no controls) so the vertical clip plays right where it sits.
+// When the clip ends, the card returns to its thumbnail.
 export function ReelCard({
   poster,
   duration,
@@ -15,11 +16,42 @@ export function ReelCard({
   id: string;
 }) {
   const [playing, setPlaying] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+
+  useEffect(() => {
+    if (!playing) return;
+    const iframe = iframeRef.current;
+    if (!iframe) return;
+
+    function onMessage(e: MessageEvent) {
+      if (e.source !== iframe?.contentWindow) return;
+      let data: { event?: string } | null = null;
+      try {
+        data = typeof e.data === "string" ? JSON.parse(e.data) : e.data;
+      } catch {
+        return;
+      }
+      if (!data) return;
+      if (data.event === "ready") {
+        // Subscribe to the player's "ended" event.
+        iframe?.contentWindow?.postMessage(
+          JSON.stringify({ method: "addEventListener", value: "ended" }),
+          "*",
+        );
+      } else if (data.event === "ended") {
+        setPlaying(false);
+      }
+    }
+
+    window.addEventListener("message", onMessage);
+    return () => window.removeEventListener("message", onMessage);
+  }, [playing]);
 
   return (
     <div className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-ink ring-1 ring-bone/10 md:w-auto">
       {playing ? (
         <iframe
+          ref={iframeRef}
           src={`https://player.vimeo.com/video/${id}?autoplay=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
           title="Convert Studios short-form ad"
           allow="autoplay; fullscreen; picture-in-picture"
