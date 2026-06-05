@@ -55,11 +55,11 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Every month we get a clear read on what's landing. No fluff, no vanity metrics, just leads and revenue.",
-    name: "Amara O.",
-    role: "Marketing lead, e-commerce brand",
-    image:
-      "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?q=80&w=400&auto=format&fit=crop",
+      "We're absolutely thrilled with all your videos! The editing and storytelling are truly outstanding, and the entire Tucann family is so happy to have had the opportunity to work with you. Your creativity and dedication shine through, and we sincerely appreciate your hard work.",
+    name: "Danielle",
+    role: "Tucann Team",
+    initials: "D",
+    color: "#2F6E5A",
   },
 ];
 
