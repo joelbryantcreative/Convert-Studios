@@ -117,7 +117,7 @@ export function Testimonials() {
 function Card({ quote, name, role, image, initials, color }: Testimonial) {
   return (
     <figure className="flex flex-col items-center text-center">
-      <div className="relative h-28 w-28 overflow-hidden rounded-full ring-1 ring-bone/15">
+      <div className="relative h-28 w-28 overflow-hidden rounded-full">
         {image ? (
           <Image src={image} alt={name} fill loading="lazy" sizes="112px" className="scale-105 object-cover" />
         ) : (
