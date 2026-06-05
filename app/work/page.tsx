@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FilmCard } from "@/components/FilmCard";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { ReelCard } from "@/components/ReelCard";
 
@@ -8,12 +9,12 @@ export const metadata: Metadata = {
     "Story-led short-form videos and cinematic brand films from Convert Studios, crafted to capture attention, build trust, and convert viewers into customers.",
 };
 
-// Brand films, two per row. Real Vimeo embeds.
+// Brand films, two per row. Real Vimeo embeds with custom thumbnails.
 const films = [
-  { client: "Bytropic Nutrition", id: "1078502850" },
-  { client: "Rogue Watches", id: "1052845867" },
-  { client: "Fat Fish Bikes", id: "1181474237" },
-  { client: "Craved This", id: "1181461629" },
+  { client: "Bytropic Nutrition", id: "1078502850", poster: "/films/bytropic-nutrition.webp" },
+  { client: "Rogue Watches", id: "1052845867", poster: "/films/rogue-watches.webp" },
+  { client: "Fat Fish Bikes", id: "1181474237", poster: "/films/fat-fish-bikes.webp" },
+  { client: "Craved This", id: "1181461629", poster: "/films/craved-this.webp" },
 ];
 
 // Top-five short-form ads (vertical), with their real poster frames.
@@ -54,20 +55,7 @@ export default function WorkPage() {
           </h2>
           <div className="mx-auto grid max-w-5xl gap-8 md:grid-cols-2">
             {films.map((film) => (
-              <figure key={film.id}>
-                <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-bone/10">
-                  <iframe
-                    src={`https://player.vimeo.com/video/${film.id}?title=0&byline=0&portrait=0&dnt=1`}
-                    title={`${film.client} brand film`}
-                    allow="autoplay; fullscreen; picture-in-picture"
-                    loading="lazy"
-                    className="absolute inset-0 h-full w-full border-0"
-                  />
-                </div>
-                <figcaption className="mt-4 text-center text-xs uppercase tracking-widest2 text-bone/60">
-                  {film.client}
-                </figcaption>
-              </figure>
+              <FilmCard key={film.id} {...film} />
             ))}
           </div>
         </div>
