@@ -20,7 +20,7 @@ export function ReelCard({
     <div className="group relative aspect-[9/16] w-[70%] shrink-0 snap-center overflow-hidden rounded-2xl bg-ink ring-1 ring-bone/10 md:w-auto">
       {playing ? (
         <iframe
-          src={`https://player.vimeo.com/video/${id}?autoplay=1&title=0&byline=0&portrait=0&dnt=1`}
+          src={`https://player.vimeo.com/video/${id}?autoplay=1&controls=0&title=0&byline=0&portrait=0&dnt=1`}
           title="Convert Studios short-form ad"
           allow="autoplay; fullscreen; picture-in-picture"
           className="absolute inset-0 h-full w-full border-0"
