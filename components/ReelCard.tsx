@@ -40,7 +40,7 @@ export function ReelCard({
             className="object-cover transition duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent" />
-          <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition group-hover:bg-white/30">
+          <span className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-ink/55 transition group-hover:bg-ink/70">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden="true">
               <path d="M8 5v14l11-7z" />
             </svg>
