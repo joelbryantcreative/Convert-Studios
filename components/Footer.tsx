@@ -25,6 +25,9 @@ export function Footer() {
               Privacy Policy
             </Link>
             <span className="text-bone/70">hello@convertstudios.au</span>
+            <a href="tel:+61497962046" className="link-underline text-bone/70 hover:text-bone">
+              +61 497 962 046
+            </a>
             <a
               href="https://instagram.com/convert.studios"
               target="_blank"

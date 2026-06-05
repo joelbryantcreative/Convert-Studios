@@ -17,9 +17,18 @@ export default function ContactPage() {
         <div className="mb-14 text-center">
           <h1 className="display-lg text-bone">Let&apos;s talk!</h1>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-bone/75">
-            Interested in working together? Fill out some info and we&apos;ll be
-            in touch shortly. We can&apos;t wait to hear from you!
+            Interested in working together? Email us, give us a call, or fill out
+            the form below and we&apos;ll be in touch shortly.
           </p>
+          <div className="mt-7 flex flex-col items-center justify-center gap-3 text-bone/85 sm:flex-row sm:gap-7">
+            <a href="mailto:hello@convertstudios.au" className="link-underline">
+              hello@convertstudios.au
+            </a>
+            <span className="hidden text-bone/30 sm:inline">•</span>
+            <a href="tel:+61497962046" className="link-underline">
+              +61 497 962 046
+            </a>
+          </div>
         </div>
 
         <ContactForm />
