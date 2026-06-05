@@ -157,7 +157,7 @@ function Arrow({
       onClick={onClick}
       disabled={disabled}
       aria-label={dir === "left" ? "Previous testimonials" : "Next testimonials"}
-      className="flex h-12 w-12 items-center justify-center rounded-full bg-bone text-ink transition hover:bg-oxblood hover:text-bone disabled:cursor-not-allowed disabled:opacity-30"
+      className="flex h-12 w-12 items-center justify-center rounded-full bg-bone text-ink transition hover:bg-gradient-to-br hover:from-aqua hover:to-deepblue hover:text-bone disabled:cursor-not-allowed disabled:opacity-30"
     >
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         {dir === "left" ? (
