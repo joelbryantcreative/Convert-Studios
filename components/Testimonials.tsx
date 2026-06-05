@@ -39,19 +39,19 @@ const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "It felt less like hiring an agency and more like adding a partner who genuinely cared whether the numbers moved.",
-    name: "James T.",
-    role: "Director, building & construction",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=400&auto=format&fit=crop",
+      "Our category isn't the easiest to advertise, but Convert Studios made content that's bold, beautiful, and unmistakably us. It stopped the scroll and moved product. They understood the brand instantly, and the sales backed it up.",
+    name: "Craved This",
+    role: "E-commerce chocolate brand",
+    initials: "C",
+    color: "#6B2737",
   },
   {
     quote:
-      "The quality of the films is on another level. But the part that surprised me was how strategic it all was underneath the beauty.",
-    name: "Priya N.",
-    role: "Owner, boutique hospitality group",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=400&auto=format&fit=crop",
+      "Working with Convert Studios was effortless. They made me feel completely comfortable on camera and shaped the story so it genuinely represented the brand and connected with the audience. Some of the best content I've been a part of.",
+    name: "Alex",
+    role: "Brand ambassador, Huckberry",
+    initials: "A",
+    color: "#4F5D6B",
   },
   {
     quote:
