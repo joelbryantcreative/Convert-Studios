@@ -62,7 +62,7 @@ export function FilmCard({
   }
 
   return (
-    <div className="relative aspect-video w-full overflow-hidden bg-ink">
+    <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-ink ring-1 ring-bone/10">
       {playing ? (
         <>
           <iframe
