@@ -20,7 +20,7 @@ body {
 }
 
 ::selection {
-  background: #6b2737; /* oxblood */
+  background: #103b63; /* deep blue */
   color: #f5f1e8;
 }
 
@@ -54,9 +54,13 @@ body {
     @apply text-xs font-medium uppercase tracking-widest2 text-slate;
   }
 
-  /* Oxblood pill button (primary CTA / brand moment) */
+  /* Aqua-to-deep-blue gradient (primary CTA / brand moment) */
+  .brand-gradient {
+    @apply bg-gradient-to-br from-aqua to-deepblue;
+  }
+
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full bg-oxblood px-8 py-4 text-sm font-semibold tracking-wide text-bone transition-all duration-300 hover:bg-bone hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-oxblood;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-br from-aqua to-deepblue px-8 py-4 text-sm font-semibold tracking-wide text-bone transition-all duration-300 hover:brightness-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-aqua;
   }
 
   .btn-ghost {
@@ -69,6 +73,6 @@ body {
 
   /* Light form inputs on the dark theme */
   .field-input {
-    @apply w-full rounded-none border-0 bg-bone px-4 py-3.5 text-ink outline-none ring-2 ring-transparent transition placeholder:text-ink/40 focus:ring-oxblood;
+    @apply w-full rounded-none border-0 bg-bone px-4 py-3.5 text-ink outline-none ring-2 ring-transparent transition placeholder:text-ink/40 focus:ring-aqua;
   }
 }

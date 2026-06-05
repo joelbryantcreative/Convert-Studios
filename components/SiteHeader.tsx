@@ -48,7 +48,7 @@ export function SiteHeader() {
               href={link.href}
               className={`relative text-sm font-medium transition ${
                 isActive(link.href)
-                  ? "text-bone after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-oxblood"
+                  ? "text-bone after:absolute after:-bottom-1.5 after:left-0 after:h-px after:w-full after:bg-aqua"
                   : "text-bone/60 hover:text-bone"
               }`}
             >

@@ -13,7 +13,9 @@ const config: Config = {
         mist: "#EAE4D5", // subtle backgrounds, hover states
         ink: "#1A1A1A", // primary text, headlines
         slate: "#6B6660", // secondary text, dividers, UI chrome
-        oxblood: "#6B2737", // primary accent, CTAs, brand moments
+        oxblood: "#6B2737", // legacy accent (replaced by the aqua→blue gradient)
+        aqua: "#21C9C4", // accent gradient start
+        deepblue: "#103B63", // accent gradient end
         dusk: "#4F5D6B", // secondary accent, used sparingly
       },
       fontFamily: {

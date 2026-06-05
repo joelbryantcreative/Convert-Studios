@@ -45,7 +45,7 @@ export function ProcessSteps() {
         <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
           {steps.map((step) => (
             <div key={step.num}>
-              <div className="flex aspect-square items-center justify-center bg-oxblood">
+              <div className="flex aspect-square items-center justify-center bg-gradient-to-br from-aqua to-deepblue">
                 <span className="font-serif text-6xl italic text-bone">
                   {step.num}
                 </span>
