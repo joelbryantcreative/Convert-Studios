@@ -16,8 +16,8 @@ export function Logo({
     <Image
       src={tone === "dark" ? "/logo-ink.png" : "/logo-white.png"}
       alt="Convert Studios"
-      width={66}
-      height={48}
+      width={141}
+      height={45}
       priority={priority}
       className={className}
     />
