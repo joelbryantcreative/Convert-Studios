@@ -14,10 +14,10 @@ export function Logo({
 }) {
   return (
     <Image
-      src={tone === "dark" ? "/logo-ink.png" : "/logo-white.png"}
+      src={tone === "dark" ? "/logo-mark-ink.png" : "/logo-mark-white.png"}
       alt="Convert Studios"
-      width={141}
-      height={45}
+      width={48}
+      height={48}
       priority={priority}
       className={className}
     />
